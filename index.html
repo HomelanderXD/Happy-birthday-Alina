@@ -34,7 +34,7 @@
   * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
   html, body { height: 100%; width: 100%; background: var(--void); color: var(--text); font-family: 'Manrope', sans-serif; overflow: hidden; }
   
-  /* ✨ SMOOTH, ROMANTIC GRADIENT ✨ */
+  /* ✨ SMOOTH, MAGICAL GRADIENT ✨ */
   #bg-overlay {
     position: fixed; inset: 0; z-index: -2;
     background: linear-gradient(-45deg, #1b0821, #4c1839, #9e3d55, #512260, #1b0821);
@@ -201,10 +201,10 @@
 <!-- ============ STAGE 1: WELCOME ============ -->
 <section class="stage active" id="stage-welcome">
   <div class="welcome-wrap">
-    <div class="eyebrow" id="txtWelcomeEyebrow">A Special Day Begins</div>
+    <div class="eyebrow" id="txtWelcomeEyebrow">A Special Day</div>
     <h1 class="title" id="txtWelcomeTitle">Happy Birthday!</h1>
     <div class="speech-bubble" id="speechBubble">...</div>
-    <button class="btn ember" id="toStage2Btn">Begin the Journey ✦</button>
+    <button class="btn ember" id="toStage2Btn">Begin the Party ✦</button>
   </div>
 </section>
 
@@ -212,7 +212,7 @@
 <section class="stage" id="stage-music-select">
   <div class="welcome-wrap">
     <div class="eyebrow" id="txtMusicEyebrow">Set the Mood</div>
-    <h1 class="title" id="txtMusicTitle">Choose Our Melody</h1>
+    <h1 class="title" id="txtMusicTitle">Choose a Melody</h1>
     <p style="font-size:0.9rem; color:var(--muted); margin-top:-10px; text-align:center;" id="txtMusicSub">Pick a song to accompany us on this little adventure.</p>
     
     <div class="track-grid">
@@ -231,10 +231,10 @@
         </div>
       </div>
       <div class="track-card" data-track="2">
-        <div class="track-icon">💖</div>
+        <div class="track-icon">🎸</div>
         <div class="track-info">
           <div class="track-name">Until I Found You — Stephen Sanchez</div>
-          <div class="track-desc" id="tDesc2">Romantic, timeless, and completely from the heart</div>
+          <div class="track-desc" id="tDesc2">Sweet, timeless acoustic warmth for a great moment</div>
         </div>
       </div>
     </div>
@@ -245,7 +245,7 @@
 
 <!-- ============ STAGE 3: WISH SYSTEM (MAX 5) ============ -->
 <section class="stage" id="stage-gacha">
-  <div class="eyebrow" id="txtEventEyebrow">The Stars Align</div>
+  <div class="eyebrow" id="txtEventEyebrow">From a Good Friend</div>
   <div class="title" id="txtEventTitle" style="margin-bottom: 20px;">5 Wishes for You</div>
   
   <div class="wish-panel">
@@ -291,34 +291,34 @@
     <div class="result-kind" id="resultKind">System Category</div>
     <div class="result-title" id="resultTitle">Item Title Name</div>
     <div class="result-body" id="resultBody">Configuration description logs here.</div>
-    <button class="btn close-btn" id="closeResultBtn">Hold Close to Heart ✦</button>
+    <button class="btn close-btn" id="closeResultBtn">Keep the Wish ✦</button>
   </div>
 </div>
 
 <script>
 /* ============================================================
-   HEARTFELT 5-WISH CONFIGURATION (HUMAN & DEEP)
+   FUN & PLATONIC 5-WISH CONFIGURATION
    ============================================================ */
-const HEARTFELT_WISHES = [
+const FRIENDSHIP_WISHES = [
   {
-    en: { title: "You Are My Light", body: "Every moment with you feels a little brighter. I wanted to start this off by simply reminding you of how deeply important you are to me, today and always." },
-    ru: { title: "Ты — мой свет", body: "Каждое мгновение с тобой кажется светлее. Я хотел начать с того, чтобы просто напомнить тебе, насколько ты важна для меня, сегодня и всегда." }
+    en: { title: "A True Friend", body: "Every moment hanging out with you is always a blast. I wanted to start this off by reminding you how awesome it is having you as a friend!" },
+    ru: { title: "Настоящий друг", body: "Каждое мгновение с тобой — это всегда весело. Я хотел начать с того, чтобы напомнить тебе, как здорово, что ты мой друг!" }
   },
   {
-    en: { title: "Endless Peace", body: "My second wish is for your peace of mind. I hope this coming year wraps you in comfort, sweeps away your anxieties, and lets you breathe easily." },
-    ru: { title: "Бесконечное спокойствие", body: "Мое второе желание — о твоем душевном покое. Пусть грядущий год укутает тебя уютом, заберет все тревоги и позволит дышать легко." }
+    en: { title: "Endless Joy", body: "My second wish is for your absolute happiness. I hope this coming year brings you tons of laughter, great memories, and zero stress." },
+    ru: { title: "Бесконечная радость", body: "Мое второе желание — о твоем счастье. Пусть этот год принесет тебе море смеха, отличных воспоминаний и ноль стресса." }
   },
   {
-    en: { title: "Unwavering Support", body: "I promise to always be your safe harbor. Whenever the world gets too loud or too difficult, you never have to face it alone. I am always in your corner." },
-    ru: { title: "Нерушимая опора", body: "Я обещаю всегда быть твоей тихой гаванью. Когда мир становится слишком громким или тяжелым, тебе никогда не придется справляться с этим одной. Я всегда на твоей стороне." }
+    en: { title: "Always Got Your Back", body: "I promise to always be there to support you. Whether we're celebrating big wins or just hanging out, you can always count on me." },
+    ru: { title: "Всегда поддержу", body: "Обещаю всегда быть рядом и поддерживать тебя. Празднуем ли мы большие победы или просто болтаем, ты всегда можешь на меня рассчитывать." }
   },
   {
-    en: { title: "Beautiful Adventures", body: "May we share countless more laughs, quiet evenings, and beautiful adventures together. My best memories are the ones that have you in them." },
-    ru: { title: "Прекрасные приключения", body: "Пусть впереди у нас будет еще множество улыбок, тихих вечеров и прекрасных приключений. Мои лучшие воспоминания — те, в которых есть ты." }
+    en: { title: "Awesome Adventures", body: "May we share countless more inside jokes, fun trips, and epic moments together. Here’s to making more great memories!" },
+    ru: { title: "Крутые приключения", body: "Пусть впереди у нас будет еще больше локальных шуток, веселых поездок и эпичных моментов. За новые отличные воспоминания!" }
   },
   {
-    en: { title: "My Favorite Person", body: "The final and most important truth: you mean the absolute world to me. I love you deeply from the bottom of my heart. Happy Birthday, my wonderful Alina." },
-    ru: { title: "Мой любимый человек", body: "И последнее, самое важное: ты для меня — целый мир. Я люблю тебя всей душой и от всего сердца. С днём рождения, моя чудесная Алина." }
+    en: { title: "The Best Vibe", body: "The final truth: you bring such a great energy to everyone around you. Keep being your amazing self. Happy Birthday, Alina!" },
+    ru: { title: "Лучший вайб", body: "И последнее: ты даришь потрясающую энергию всем вокруг. Оставайся такой же невероятной. С днём рождения, Алина!" }
   }
 ];
 
@@ -333,54 +333,54 @@ const SONGS_RECORDS_RESOURCES = [
    ============================================================ */
 const I18N = {
   en: {
-    welcomeEyebrow: "A Very Special Day",
+    welcomeEyebrow: "A Special Day",
     welcomeTitle: "Happy Birthday, Alina!",
-    bubbleNamed: "“There is a warmth in the air today, a gentle reminder of how lucky the world is to have you in it.” <br><br>I made this little space just for you. Take a breath, smile, and let's begin.",
-    proceedBtn: "Begin the Journey ✦",
+    bubbleNamed: "“There is a great vibe in the air today, a gentle reminder of how lucky we all are to have you as a friend.” <br><br>I made this little space to celebrate you. Smile, and let's begin.",
+    proceedBtn: "Begin the Party ✦",
     musicEyebrow: "Set the Mood",
-    musicTitle: "Choose Our Melody",
+    musicTitle: "Choose a Melody",
     musicSub: "Pick a song to accompany us on this little adventure.",
     lockTrackBtn: "Lock in Track & Continue ✦",
     tDesc0: "Warm, groovy, and perfectly relaxed",
     tDesc1: "Nostalgic, comforting, and deeply soothing",
-    tDesc2: "Romantic, timeless, and completely from the heart",
-    eventEyebrow: "From My Heart to Yours",
+    tDesc2: "Sweet, timeless acoustic warmth for a great moment",
+    eventEyebrow: "From a Good Friend",
     eventTitle: "5 Wishes for You",
-    guaranteeDesc: "I have gathered 5 very specific wishes for you. Take your time with each one.",
-    kindWish: "Heartfelt Wish",
-    continueBtn: "Hold Close to Heart ✦",
+    guaranteeDesc: "I have gathered 5 special birthday wishes just for you. Take your time with each one.",
+    kindWish: "Birthday Wish",
+    continueBtn: "Keep the Wish ✦",
     finaleEyebrow: "The Final Moment",
     finaleTitle: "Happy Birthday!",
     finaleAction: "✦ TAP TO BLOW OUT THE CANDLE ✦",
-    finaleSpeech: "The wishes are spoken, but the magic is just beginning. Make a secret wish of your own, blow out the candle, and let's celebrate you.",
+    finaleSpeech: "The wishes are spoken, but the magic is just beginning. Make a secret birthday wish of your own, blow out the candle, and let's celebrate.",
     wishProgress: "Wishes Remaining: ",
     makeWishBtn: "Make a Wish ✦",
-    cakeBlown: "<strong>Beautiful!</strong> Your wish has been sent out into the universe. I hope this year brings you everything your heart desires. I love you! 🌟"
+    cakeBlown: "<strong>Beautiful!</strong> Your wish has been sent out into the universe. I hope this year brings you everything your heart desires. <br><br><span style='color:var(--gold); font-size:1.3rem; font-family:\"Philosopher\", serif;'>Happy Birthday from Aman!</span> 🌟"
   },
   ru: {
     welcomeEyebrow: "Особенный День",
     welcomeTitle: "С днём рождения, Алина!",
-    bubbleNamed: "«Сегодня в воздухе витает особое тепло, напоминающее о том, как миру повезло, что ты в нем есть.» <br><br>Я создал это маленькое пространство только для тебя. Улыбнись, и давай начнем.",
-    proceedBtn: "Начать путешествие ✦",
+    bubbleNamed: "«Сегодня в воздухе витает отличный вайб, напоминающий о том, как нам всем повезло иметь такую подругу.» <br><br>Я создал это маленькое пространство, чтобы поздравить тебя. Улыбнись, и давай начнем.",
+    proceedBtn: "Начать праздник ✦",
     musicEyebrow: "Создаем настроение",
-    musicTitle: "Выбери нашу мелодию",
+    musicTitle: "Выбери мелодию",
     musicSub: "Выбери песню, которая будет сопровождать нас.",
     lockTrackBtn: "Зафиксировать трек и идти дальше ✦",
     tDesc0: "Теплая, ритмичная и невероятно расслабляющая",
     tDesc1: "Ностальгическая, уютная и согревающая душу",
-    tDesc2: "Романтичная, вечная и идущая от самого сердца",
-    eventEyebrow: "От всего сердца",
+    tDesc2: "Приятное, вечное акустическое тепло для отличного момента",
+    eventEyebrow: "От хорошего друга",
     eventTitle: "5 Желаний для Тебя",
-    guaranteeDesc: "Я собрал 5 особенных желаний только для тебя. Не спеши, прочти каждое.",
-    kindWish: "Искреннее Желание",
-    continueBtn: "Сохранить в сердце ✦",
+    guaranteeDesc: "Я собрал 5 особенных пожеланий специально для тебя. Не спеши, прочти каждое.",
+    kindWish: "Пожелание на День Рождения",
+    continueBtn: "Сохранить пожелание ✦",
     finaleEyebrow: "Финальный Момент",
     finaleTitle: "С днём рождения!",
     finaleAction: "✦ НАЖМИ НА ТОРТ, ЧТОБЫ ЗАДУТЬ СВЕЧУ ✦",
-    finaleSpeech: "Мои слова сказаны, но волшебство только начинается. Загадай свое самое заветное желание, задуй свечу, и давай праздновать.",
+    finaleSpeech: "Мои слова сказаны, но праздник только начинается. Загадай свое самое заветное желание, задуй свечу, и давай праздновать.",
     wishProgress: "Осталось желаний: ",
     makeWishBtn: "Загадать желание ✦",
-    cakeBlown: "<strong>Потрясающе!</strong> Твое желание отправлено во Вселенную. Я надеюсь, этот год принесет тебе всё, о чем ты мечтаешь. Я люблю тебя! 🌟"
+    cakeBlown: "<strong>Потрясающе!</strong> Твое желание отправлено во Вселенную. Надеюсь, этот год принесет тебе всё, о чем ты мечтаешь. <br><br><span style='color:var(--gold); font-size:1.3rem; font-family:\"Philosopher\", serif;'>С днём рождения от Амана!</span> 🌟"
   }
 };
 
@@ -438,7 +438,7 @@ function rebuildUIStrings() {
     $('finaleSpeech').innerHTML = t.finaleSpeech;
   } else {
     $('finaleSpeech').innerHTML = t.cakeBlown;
-    $('txtCakeAction').textContent = currentLang === 'en' ? "✦ FOREVER YOURS ✦" : "✦ НАВСЕГДА ТВОЙ ✦";
+    $('txtCakeAction').textContent = currentLang === 'en' ? "✦ WISH GRANTED ✦" : "✦ ЖЕЛАНИЕ ИСПОЛНЕНО ✦";
   }
 }
 
@@ -599,7 +599,7 @@ $('toStage3Btn').addEventListener('click', () => {
 });
 
 /* ============================================================
-   GACHA LOGIC (MAX 5 HEARTFELT WISHES)
+   GACHA LOGIC (MAX 5 WISHES)
    ============================================================ */
 let activeGachaCutsceneActive = false;
 let currentWishData = null;
@@ -608,7 +608,7 @@ function executeWishDrawSequence() {
   if(activeGachaCutsceneActive || totalWishesExecuted >= MAX_WISHES) return;
   activeGachaCutsceneActive = true;
   
-  const wishContent = HEARTFELT_WISHES[totalWishesExecuted][currentLang];
+  const wishContent = FRIENDSHIP_WISHES[totalWishesExecuted][currentLang];
   totalWishesExecuted++;
   
   const t = getText();
@@ -703,7 +703,7 @@ $('interactiveCake').addEventListener('click', () => {
   $('interactiveCake').classList.add('cut');
   
   const t = getText();
-  $('txtCakeAction').textContent = currentLang === 'en' ? "✦ FOREVER YOURS ✦" : "✦ НАВСЕГДА ТВОЙ ✦";
+  $('txtCakeAction').textContent = currentLang === 'en' ? "✦ WISH GRANTED ✦" : "✦ ЖЕЛАНИЕ ИСПОЛНЕНО ✦";
   $('finaleSpeech').innerHTML = t.cakeBlown;
     
   if(coreAudioContextActive && coreAudioContextActive.state === 'running') {

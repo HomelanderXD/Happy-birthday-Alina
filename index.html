@@ -9,7 +9,7 @@
 <style>
   :root {
     /* ✨ VIBRANT FESTIVE GENSHIN PALETTE ✨ */
-    --void: #2a0845;
+    --void: #130525;
     --deep: #6441A5;
     --card-dark: rgba(35, 15, 45, 0.85);
     --gold: #f9d381;
@@ -21,20 +21,19 @@
     --text: #fffdf9;
     --muted: #dfc8e6;
     --line: rgba(249, 211, 129, 0.35);
-    --panel: rgba(50, 15, 60, 0.65);
+    --panel: rgba(45, 12, 55, 0.7);
     --panel-solid: #3a1132;
   }
   
   * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
   html, body { height: 100%; width: 100%; background: var(--void); color: var(--text); font-family: 'Manrope', sans-serif; overflow: hidden; }
   
-  /* ✨ FESTIVE MOVING CELEBRATION GRADIENT ✨ */
+  /* ✨ DEEP SPACE MOVING CELEBRATION GRADIENT ✨ */
   #bg-overlay {
-    position: fixed; inset: 0; z-index: -2;
-    background: linear-gradient(-45deg, #1f0b3b, #6441A5, #cc3b6b, #e06c53, #1f0b3b);
+    position: fixed; inset: 0; z-index: -3;
+    background: linear-gradient(-45deg, #0f041c, #3a1459, #6c2354, #2a0b47, #0f041c);
     background-size: 400% 400%;
-    animation: gradientShift 14s ease-in-out infinite;
-    transition: filter 0.8s ease;
+    animation: gradientShift 16s ease-in-out infinite;
   }
   @keyframes gradientShift {
     0% { background-position: 0% 50%; }
@@ -42,7 +41,8 @@
     100% { background-position: 0% 50%; }
   }
 
-  canvas { position: fixed; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; will-change: transform; opacity: 1; }
+  /* ✨ LIVE CANVAS LAYER FOR STARS & BALLOONS ✨ */
+  canvas { position: fixed; inset: 0; width: 100%; height: 100%; z-index: -2; pointer-events: none; }
   
   body.shake { animation: impactVibe 0.4s cubic-bezier(.36,.07,.19,.97) both; }
   @keyframes impactVibe {
@@ -72,12 +72,12 @@
   #music-toggle:hover { transform: scale(1.1); }
 
   /* Premium Typographical Systems */
-  .eyebrow { letter-spacing: 0.25em; text-transform: uppercase; font-size: 0.7rem; color: var(--gold-bright); font-weight: 700; text-align: center; margin-bottom: 8px; text-shadow: 0 2px 4px rgba(0,0,0,0.5);}
+  .eyebrow { letter-spacing: 0.25em; text-transform: uppercase; font-size: 0.75rem; color: var(--gold-bright); font-weight: 800; text-align: center; margin-bottom: 8px; text-shadow: 0 2px 6px rgba(0,0,0,0.8);}
   h1.title {
-    font-family: 'Philosopher', serif; font-weight: 700; font-size: clamp(1.8rem, 5.2vw, 3.4rem); line-height: 1.2; text-align: center;
+    font-family: 'Philosopher', serif; font-weight: 700; font-size: clamp(2rem, 5.5vw, 3.8rem); line-height: 1.2; text-align: center;
     background: linear-gradient(180deg, var(--text) 10%, var(--gold-bright) 60%, var(--gold) 100%);
     -webkit-background-clip: text; background-clip: text; color: transparent;
-    text-shadow: 0 0 35px rgba(249,211,129,0.4);
+    text-shadow: 0 0 40px rgba(249,211,129,0.5);
   }
 
   /* Structural Button Layout Components */
@@ -99,8 +99,8 @@
   .welcome-wrap { display: flex; flex-direction: column; align-items: center; max-width: 500px; width: 100%; text-align: center; gap: 16px; }
   
   /* KAZUHA BANNER */
-  .kazuha-container { position: relative; width: 100%; max-width: 480px; height: 190px; border-radius: 16px; overflow: hidden; border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; box-shadow: 0 15px 40px rgba(0,0,0,0.5); background: var(--deep); margin-bottom: 10px;}
-  .kazuha-aura { position: absolute; inset: -20%; background: radial-gradient(circle, rgba(249,211,129,0.3), rgba(227,186,248,0.2), transparent 70%); filter: blur(15px); animation: auraPulse 4s ease-in-out infinite; }
+  .kazuha-container { position: relative; width: 100%; max-width: 480px; height: 190px; border-radius: 16px; overflow: hidden; border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; box-shadow: 0 15px 40px rgba(0,0,0,0.6); background: var(--deep); margin-bottom: 10px;}
+  .kazuha-aura { position: absolute; inset: -20%; background: radial-gradient(circle, rgba(249,211,129,0.35), rgba(227,186,248,0.25), transparent 70%); filter: blur(15px); animation: auraPulse 4s ease-in-out infinite; }
   @keyframes auraPulse { 0%,100% { transform: scale(0.96); opacity: 0.7; } 50% { transform: scale(1.04); opacity: 1; } }
   .kazuha-img { width: 100%; height: 100%; object-fit: cover; z-index: 2; animation: floatGfx 6s ease-in-out infinite; }
   @keyframes floatGfx { 0%,100% { transform: scale(1); } 50% { transform: scale(1.03); } }
@@ -108,8 +108,8 @@
   .speech-bubble {
     background: var(--panel); border: 1px solid var(--line); border-radius: 16px;
     padding: 20px 24px; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-    font-family: 'PT Serif', serif; font-size: 1.1rem; font-style: italic; color: var(--gold-bright);
-    box-shadow: 0 8px 32px rgba(0,0,0,0.3); position: relative; line-height: 1.6;
+    font-family: 'PT Serif', serif; font-size: 1.15rem; font-style: italic; color: var(--gold-bright);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4); position: relative; line-height: 1.6; text-shadow: 0 1px 2px rgba(0,0,0,0.5);
   }
 
   /* Music Selection */
@@ -120,8 +120,8 @@
     padding: 18px; display: flex; align-items: center; gap: 16px; cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); backdrop-filter: blur(12px);
   }
-  .track-card:hover { border-color: var(--gold); transform: translateX(6px); background: rgba(100, 65, 165, 0.5); }
-  .track-card.selected { border-color: var(--gold); background: linear-gradient(90deg, rgba(249,211,129,0.25), rgba(100, 65, 165, 0.7)); box-shadow: 0 0 25px rgba(249,211,129,0.25); }
+  .track-card:hover { border-color: var(--gold); transform: translateX(6px); background: rgba(100, 65, 165, 0.6); }
+  .track-card.selected { border-color: var(--gold); background: linear-gradient(90deg, rgba(249,211,129,0.25), rgba(100, 65, 165, 0.8)); box-shadow: 0 0 25px rgba(249,211,129,0.3); }
   .track-icon { width: 44px; height: 44px; border-radius: 50%; background: rgba(249,211,129,0.2); display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 1.3rem; flex-shrink: 0; transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); }
   .track-card.selected .track-icon { transform: rotate(15deg) scale(1.1); color: #fff; background: var(--gold-deep); box-shadow: 0 0 20px var(--gold); }
   .track-info { display: flex; flex-direction: column; text-align: left; }
@@ -136,12 +136,12 @@
     position: relative; width: 32%; max-width: 170px; aspect-ratio: 1 / 1.48; border-radius: 12px; overflow: hidden;
     border: 1px solid var(--line); background: var(--card-dark);
     display: flex; flex-direction: column; align-items: center; justify-content: flex-end; padding-bottom: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5); transition: transform 0.3s; backdrop-filter: blur(8px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6); transition: transform 0.3s; backdrop-filter: blur(8px);
   }
   .char-card:hover { transform: translateY(-4px); border-color: var(--gold); box-shadow: 0 15px 35px rgba(249,211,129,0.3); }
   .char-card .rays { position: absolute; inset: 0; background: conic-gradient(from 0deg, transparent 0deg, rgba(249,211,129,0.15) 15deg, transparent 30deg); animation: spinWheel 15s linear infinite; opacity: 0.8; pointer-events: none; }
   @keyframes spinWheel { to { transform: rotate(360deg); } }
-  .char-svg { width: 62%; aspect-ratio: 1; margin-bottom: 8px; z-index: 2; border-radius: 50%; overflow: hidden; border: 2px solid var(--line); background: var(--deep); display:flex; align-items:center; justify-content:center; box-shadow: 0 5px 15px rgba(0,0,0,0.5);}
+  .char-svg { width: 62%; aspect-ratio: 1; margin-bottom: 8px; z-index: 2; border-radius: 50%; overflow: hidden; border: 2px solid var(--line); background: var(--deep); display:flex; align-items:center; justify-content:center; box-shadow: 0 5px 15px rgba(0,0,0,0.6);}
   .char-svg img { width: 100%; height: 100%; object-fit: cover; }
   .char-name { font-family: 'Philosopher', serif; font-size: 0.95rem; z-index: 2; color: var(--gold-bright); font-weight: 700; text-shadow: 0 2px 4px rgba(0,0,0,0.8); }
   .char-stars { color: var(--gold); font-size: 0.65rem; letter-spacing: 1px; z-index: 2; margin-top: 2px; }
@@ -150,13 +150,13 @@
     background: var(--panel); border: 1px solid var(--line); border-radius: 18px;
     padding: 22px; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
     width: 100%; max-width: 450px; display: flex; flex-direction: column; align-items: center; gap: 14px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.3); transition: transform 0.4s ease;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4); transition: transform 0.4s ease;
   }
   .wish-progress { font-family: 'Philosopher', serif; font-size: 1.3rem; color: var(--gold-bright); font-weight: 700;}
-  .guarantee-note { font-size: 0.8rem; color: var(--muted); text-align: center; line-height: 1.5; font-style: italic;}
+  .guarantee-note { font-size: 0.85rem; color: var(--muted); text-align: center; line-height: 1.5; font-style: italic;}
 
   /* Meteor Animation */
-  #pull-overlay { position: fixed; inset: 0; z-index: 100; display: none; align-items: center; justify-content: center; overflow: hidden; background: rgba(20, 10, 30, 0.85); backdrop-filter: blur(5px); }
+  #pull-overlay { position: fixed; inset: 0; z-index: 100; display: none; align-items: center; justify-content: center; overflow: hidden; background: rgba(15, 5, 25, 0.85); backdrop-filter: blur(5px); }
   #pull-overlay.active { display: flex; }
   .meteor {
     position: absolute; top: -20%; right: -20%; width: 45px; height: 45px; border-radius: 50%; opacity: 0;
@@ -177,7 +177,7 @@
   @keyframes flashBurst { 0% { opacity: 1; } 100% { opacity: 0; } }
 
   /* Result Modal */
-  #result-overlay { position: fixed; inset: 0; z-index: 110; display: none; align-items: center; justify-content: center; background: rgba(25,10,40,0.85); padding: 16px; backdrop-filter: blur(10px); opacity: 0; transition: opacity 0.4s ease;}
+  #result-overlay { position: fixed; inset: 0; z-index: 110; display: none; align-items: center; justify-content: center; background: rgba(20,5,30,0.85); padding: 16px; backdrop-filter: blur(10px); opacity: 0; transition: opacity 0.4s ease;}
   #result-overlay.active { display: flex; opacity: 1; }
   .result-card { width: 100%; max-width: 420px; border-radius: 24px; padding: 40px 24px; text-align: center; position: relative; border: 1px solid var(--line); transform: scale(0.9); transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); }
   #result-overlay.active .result-card { transform: scale(1); }
@@ -192,17 +192,17 @@
   /* Cake Stage (WITH CHIBIS) */
   #stage-cake { justify-content: center; min-height: 100vh; gap: 20px; padding-top: 40px; }
   .party-zone { display: flex; flex-direction: column; align-items: center; max-width: 480px; width: 100%; text-align: center; gap: 16px; }
-  .cake-box { position: relative; width: 200px; height: 200px; margin: 10px 0; cursor: pointer; }
-  .cake-svg { width: 100%; height: 100%; filter: drop-shadow(0 15px 35px rgba(0,0,0,0.5)); transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); }
+  .cake-box { position: relative; width: 210px; height: 210px; margin: 10px 0; cursor: pointer; }
+  .cake-svg { width: 100%; height: 100%; filter: drop-shadow(0 15px 35px rgba(0,0,0,0.6)); transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); }
   .cake-box:hover .cake-svg { transform: scale(1.08); }
   .flame { animation: windFlicker 0.6s ease-in-out infinite alternate; transform-origin: center bottom; }
   @keyframes windFlicker { 0% { transform: scale(0.9) rotate(-3deg); opacity: 0.85; } 100% { transform: scale(1.1) rotate(3deg); opacity: 1; } }
   .cake-box.cut .flame { display: none !important; }
-  .cake-instructions { font-size: 0.9rem; color: var(--gold-bright); font-weight: 700; letter-spacing: 0.08em; animation: alphaPulse 2s infinite; text-shadow: 0 2px 8px rgba(0,0,0,0.5);}
+  .cake-instructions { font-size: 0.95rem; color: var(--gold-bright); font-weight: 800; letter-spacing: 0.08em; animation: alphaPulse 2s infinite; text-shadow: 0 2px 8px rgba(0,0,0,0.6);}
   @keyframes alphaPulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
 
   .chibi-row { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; width: 100%; margin-top: 15px; }
-  .chibi-wrapper { width: 62px; height: 62px; background: rgba(249,211,129,0.15); border: 2px solid var(--line); border-radius: 50%; overflow: hidden; padding: 2px; box-shadow: 0 5px 15px rgba(0,0,0,0.5);}
+  .chibi-wrapper { width: 66px; height: 66px; background: rgba(249,211,129,0.15); border: 2px solid var(--line); border-radius: 50%; overflow: hidden; padding: 2px; box-shadow: 0 6px 18px rgba(0,0,0,0.6);}
   .chibi-wrapper img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; background: var(--deep); }
   
   @media (max-width: 480px) {
@@ -425,7 +425,7 @@ const I18N = {
     finaleSpeech: "The wishes are spoken, but the magic is just beginning. Make a secret birthday wish of your own, blow out the candle, and let's celebrate.",
     wishProgress: "Wishes Remaining: ",
     makeWishBtn: "Make a Wish ✦",
-    cakeBlown: "<strong>Beautiful!</strong> Your wish has been sent out into the universe. I hope this year brings you everything your heart desires. <br><br><span style='color:var(--gold); font-size:1.3rem; font-family:\"Philosopher\", serif;'>Happy Birthday from Aman!</span> 🌟"
+    cakeBlown: "<strong>Beautiful!</strong> Your wish has been sent out into the universe. I hope this year brings you everything your heart desires. <br><br><span style='color:var(--gold); font-size:1.4rem; font-family:\"Philosopher\", serif;'>Happy Birthday from Aman!</span> 🌟"
   },
   ru: {
     welcomeEyebrow: "Особенный День",
@@ -450,7 +450,7 @@ const I18N = {
     finaleSpeech: "Мои слова сказаны, но праздник только начинается. Загадай свое самое заветное желание, задуй свечу, и давай праздновать.",
     wishProgress: "Осталось желаний: ",
     makeWishBtn: "Загадать желание ✦",
-    cakeBlown: "<strong>Потрясающе!</strong> Твое желание отправлено во Вселенную. Надеюсь, этот год принесет тебе всё, о чем ты мечтаешь. <br><br><span style='color:var(--gold); font-size:1.3rem; font-family:\"Philosopher\", serif;'>С днём рождения от Амана!</span> 🌟"
+    cakeBlown: "<strong>Потрясающе!</strong> Твое желание отправлено во Вселенную. Надеюсь, этот год принесет тебе всё, о чем ты мечтаешь. <br><br><span style='color:var(--gold); font-size:1.4rem; font-family:\"Philosopher\", serif;'>С днём рождения от Амана!</span> 🌟"
   }
 };
 
@@ -521,25 +521,26 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
 });
 
 /* ============================================================
-   CANVAS: BALLOONS AND TWINKLING STARS
+   CANVAS ENGINE: 150 STARS, 25 SPARKLES, 15 BALLOONS
    ============================================================ */
 const canvas = $('canvas-bg');
 const ctx = canvas.getContext('2d');
+
 let balloons = [];
-let stars = [];
+let stars = [];     // Tiny twinkling background dots
+let sparkles = [];  // Larger spinning 4-point stars
 
 function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
 window.addEventListener('resize', resizeCanvas);
 resizeCanvas();
 
 const BALLOON_COLORS = [
-  'rgba(255, 143, 171, 0.4)', // Pink
-  'rgba(249, 211, 129, 0.4)', // Gold
-  'rgba(227, 186, 248, 0.4)', // Violet
-  'rgba(255, 127, 102, 0.4)'  // Ember
+  'rgba(255, 143, 171, 0.45)', // Pink
+  'rgba(249, 211, 129, 0.45)', // Gold
+  'rgba(227, 186, 248, 0.45)', // Violet
+  'rgba(255, 127, 102, 0.45)'  // Ember
 ];
 
-// Generate Balloons
 function generateBalloon() {
   return {
     x: Math.random() * canvas.width,
@@ -552,29 +553,35 @@ function generateBalloon() {
   };
 }
 
-// Generate Stars
-function generateStar() {
+function generateDotStar() {
   return {
     x: Math.random() * canvas.width,
     y: Math.random() * canvas.height,
-    size: Math.random() * 3 + 1,
-    speedY: Math.random() * 0.3 + 0.1,
+    r: Math.random() * 1.5 + 0.5,
     alpha: Math.random(),
     alphaDir: Math.random() > 0.5 ? 1 : -1,
-    alphaSpeed: Math.random() * 0.015 + 0.005,
-    rotation: Math.random() * Math.PI,
-    rotSpeed: (Math.random() - 0.5) * 0.02
+    alphaSpeed: Math.random() * 0.02 + 0.005
   };
 }
 
-for(let i=0; i<18; i++) {
-  let b = generateBalloon();
-  b.y = Math.random() * canvas.height;
-  balloons.push(b);
+function generateSparkle() {
+  return {
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    size: Math.random() * 4 + 2,
+    speedY: Math.random() * 0.2 + 0.05,
+    alpha: Math.random(),
+    alphaDir: Math.random() > 0.5 ? 1 : -1,
+    alphaSpeed: Math.random() * 0.02 + 0.01,
+    rotation: Math.random() * Math.PI,
+    rotSpeed: (Math.random() - 0.5) * 0.03
+  };
 }
-for(let i=0; i<35; i++) {
-  stars.push(generateStar());
-}
+
+// Populate the sky
+for(let i=0; i<15; i++) balloons.push(generateBalloon());
+for(let i=0; i<150; i++) stars.push(generateDotStar());
+for(let i=0; i<25; i++) sparkles.push(generateSparkle());
 
 function drawBalloonShape(ctx, x, y, r, color) {
   ctx.save();
@@ -592,25 +599,25 @@ function drawBalloonShape(ctx, x, y, r, color) {
   ctx.fill();
 
   ctx.beginPath();
-  ctx.strokeStyle = "rgba(255,255,255,0.15)";
+  ctx.strokeStyle = "rgba(255,255,255,0.2)";
   ctx.lineWidth = 1.5;
   ctx.moveTo(x, y + r*0.3);
   ctx.quadraticCurveTo(x - r*0.5, y + r*1.5, x, y + r*3);
   ctx.stroke();
-  
   ctx.restore();
 }
 
-function drawStarShape(ctx, cx, cy, spikes, outerRadius, innerRadius, alpha, rotation) {
+function drawSparkleShape(ctx, cx, cy, size, alpha, rotation) {
   let rot = Math.PI / 2 * 3 + rotation;
-  let x = cx;
-  let y = cy;
-  let step = Math.PI / spikes;
+  let x = cx, y = cy;
+  let step = Math.PI / 4;
+  let outerRadius = size * 2;
+  let innerRadius = size;
 
   ctx.save();
   ctx.beginPath();
   ctx.moveTo(cx, cy - outerRadius);
-  for (let i = 0; i < spikes; i++) {
+  for (let i = 0; i < 4; i++) {
     x = cx + Math.cos(rot) * outerRadius;
     y = cy + Math.sin(rot) * outerRadius;
     ctx.lineTo(x, y);
@@ -622,7 +629,7 @@ function drawStarShape(ctx, cx, cy, spikes, outerRadius, innerRadius, alpha, rot
   }
   ctx.lineTo(cx, cy - outerRadius);
   ctx.closePath();
-  ctx.fillStyle = `rgba(249, 211, 129, ${alpha})`; // Gold stars
+  ctx.fillStyle = `rgba(249, 211, 129, ${alpha})`;
   ctx.fill();
   ctx.restore();
 }
@@ -630,26 +637,42 @@ function drawStarShape(ctx, cx, cy, spikes, outerRadius, innerRadius, alpha, rot
 function liveBackgroundRender() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   
-  // Render Stars
+  // Render Background Dots (Twinkling Starfield)
+  ctx.fillStyle = "#ffffff";
   for(let i=0; i<stars.length; i++) {
     let s = stars[i];
-    s.y -= s.speedY;
-    s.rotation += s.rotSpeed;
     s.alpha += s.alphaDir * s.alphaSpeed;
-    if(s.alpha > 0.8) { s.alpha = 0.8; s.alphaDir = -1; }
+    if(s.alpha > 0.9) { s.alpha = 0.9; s.alphaDir = -1; }
     else if(s.alpha < 0.1) { s.alpha = 0.1; s.alphaDir = 1; }
     
-    if(s.y < -10) { stars[i] = generateStar(); stars[i].y = canvas.height + 10; }
-    drawStarShape(ctx, s.x, s.y, 4, s.size * 2, s.size, s.alpha, s.rotation);
+    ctx.globalAlpha = s.alpha;
+    ctx.beginPath();
+    ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+    ctx.fill();
+  }
+  ctx.globalAlpha = 1.0;
+
+  // Render Foreground Sparkles
+  for(let i=0; i<sparkles.length; i++) {
+    let sp = sparkles[i];
+    sp.y -= sp.speedY;
+    sp.rotation += sp.rotSpeed;
+    sp.alpha += sp.alphaDir * sp.alphaSpeed;
+    
+    if(sp.alpha > 0.9) { sp.alpha = 0.9; sp.alphaDir = -1; }
+    else if(sp.alpha < 0.1) { sp.alpha = 0.1; sp.alphaDir = 1; }
+    
+    if(sp.y < -10) { sparkles[i] = generateSparkle(); sparkles[i].y = canvas.height + 10; }
+    drawSparkleShape(ctx, sp.x, sp.y, sp.size, sp.alpha, sp.rotation);
   }
 
-  // Render Balloons
+  // Render Floating Balloons
   for(let i=0; i<balloons.length; i++) {
     let b = balloons[i];
     b.wobble += b.wobbleSpeed;
-    b.x += Math.sin(b.wobble) * 0.3;
+    b.x += Math.sin(b.wobble) * 0.4;
     b.y -= b.speedY;
-    if(b.y < -150) { balloons[i] = generateBalloon(); b = balloons[i]; }
+    if(b.y < -150) { balloons[i] = generateBalloon(); balloons[i].y = canvas.height + 150; }
     drawBalloonShape(ctx, b.x, b.y, b.size, b.color);
   }
   

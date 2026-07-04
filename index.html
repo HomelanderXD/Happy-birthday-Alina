@@ -8,39 +8,39 @@
 <link href="https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400&family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
-    /* ✨ NEW CHIC MAGICAL COLOR PALETTE ✨ */
-    --void: #160a2b;
-    --deep: #3b1642;
-    --deep2: #5c2049;
-    --card-dark: rgba(35, 15, 45, 0.8);
-    --gold: #f5c070;
-    --gold-bright: #ffe8b5;
-    --gold-deep: #d99648;
-    --ember: #ff7551;
-    --lantern: #d64747;
-    --dendro: #7bc43a;
-    --anemo: #73ceb5;
-    --hydro: #50c4f5;
-    --pyro: #f56d49;
-    --violet: #d4abf7;
-    --copper: #e8a598;
-    --text: #fff2f7;
-    --muted: #d0badd;
-    --line: rgba(245, 192, 112, 0.25);
-    --panel: rgba(40, 15, 50, 0.55);
-    --panel-solid: #260e33;
+    /* ✨ WARMER, MAGICAL FESTIVE PALETTE ✨ */
+    --void: #240c21;
+    --deep: #5e2246;
+    --card-dark: rgba(50, 15, 45, 0.7);
+    --gold: #f9d381;
+    --gold-bright: #fff2c8;
+    --gold-deep: #e8a55d;
+    --ember: #ff7f66;
+    --lantern: #e25463;
+    --violet: #e3baf8;
+    --text: #fffdf9;
+    --muted: #dfc8e6;
+    --line: rgba(249, 211, 129, 0.3);
+    --panel: rgba(60, 20, 55, 0.6);
+    --panel-solid: #3a1132;
+    
+    /* Balloon Colors */
+    --b-pink: rgba(255, 143, 171, 0.6);
+    --b-gold: rgba(249, 211, 129, 0.6);
+    --b-purple: rgba(181, 131, 219, 0.6);
+    --b-peach: rgba(255, 182, 163, 0.6);
   }
   
   * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
   html, body { height: 100%; width: 100%; background: var(--void); color: var(--text); font-family: 'Manrope', sans-serif; overflow: hidden; }
   
-  /* ✨ NEW LIVE MOVING ELEGANT GRADIENT ✨ */
+  /* ✨ SMOOTH, ROMANTIC GRADIENT ✨ */
   #bg-overlay {
     position: fixed; inset: 0; z-index: -2;
-    background: linear-gradient(-45deg, #100821, #3c1445, #752253, #2e1a5e, #180b29);
+    background: linear-gradient(-45deg, #1b0821, #4c1839, #9e3d55, #512260, #1b0821);
     background-size: 400% 400%;
-    animation: gradientShift 14s ease-in-out infinite;
-    transition: filter 0.6s ease;
+    animation: gradientShift 18s ease-in-out infinite;
+    transition: filter 0.8s ease;
   }
   @keyframes gradientShift {
     0% { background-position: 0% 50%; }
@@ -48,14 +48,14 @@
     100% { background-position: 0% 50%; }
   }
 
-  canvas { position: fixed; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; will-change: transform; opacity: 0.8; }
+  canvas { position: fixed; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; will-change: transform; opacity: 0.9; }
   
-  body.shake { animation: impactVibe 0.38s cubic-bezier(.36,.07,.19,.97) both; transform: translate3d(0, 0, 0); }
+  body.shake { animation: impactVibe 0.4s cubic-bezier(.36,.07,.19,.97) both; }
   @keyframes impactVibe {
-    10%, 90% { transform: translate3d(-2px, 1px, 0); }
-    20%, 80% { transform: translate3d(4px, -2px, 0); }
-    30%, 50%, 70% { transform: translate3d(-6px, 4px, 0); }
-    40%, 60% { transform: translate3d(6px, -4px, 0); }
+    10%, 90% { transform: translate3d(-1px, 1px, 0); }
+    20%, 80% { transform: translate3d(2px, -1px, 0); }
+    30%, 50%, 70% { transform: translate3d(-3px, 2px, 0); }
+    40%, 60% { transform: translate3d(3px, -2px, 0); }
   }
 
   /* Universal Stage Container Architecture Modules */
@@ -64,168 +64,125 @@
     display: none; opacity: 0; pointer-events: none;
     flex-direction: column; align-items: center; overflow-y: auto;
     padding: 24px 16px 80px; -webkit-overflow-scrolling: touch;
-    transition: opacity 0.45s ease, transform 0.45s ease;
-    transform: translateY(12px);
+    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateY(20px);
   }
   .stage.active { display: flex; opacity: 1; pointer-events: all; transform: translateY(0); }
 
-  /* Navigation Bar System Override Layer */
+  /* Navigation Bar */
   #top-controls { position: fixed; top: 16px; left: 0; right: 0; z-index: 60; display: flex; justify-content: space-between; padding: 0 16px; pointer-events: none;}
-  .lang-toggle { display: flex; gap: 2px; background: var(--panel-solid); border: 1px solid var(--line); border-radius: 999px; padding: 3px; pointer-events: all; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
-  .lang-btn { appearance: none; border: none; cursor:pointer; background:transparent; color:var(--muted); font-family:'Manrope'; font-weight:700; font-size:0.75rem; padding:6px 12px; border-radius:999px; transition:all .2s; }
-  .lang-btn.active { background: linear-gradient(135deg, var(--gold), var(--gold-deep)); color: #160a2b; }
-  #music-toggle { pointer-events:all; width:38px; height:38px; border-radius:50%; background:var(--panel-solid); border:1px solid var(--line); display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:1rem; color:var(--gold); box-shadow:0 4px 15px rgba(0,0,0,0.4); }
+  .lang-toggle { display: flex; gap: 2px; background: var(--panel-solid); border: 1px solid var(--line); border-radius: 999px; padding: 3px; pointer-events: all; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+  .lang-btn { appearance: none; border: none; cursor:pointer; background:transparent; color:var(--muted); font-family:'Manrope'; font-weight:700; font-size:0.75rem; padding:6px 12px; border-radius:999px; transition:all 0.3s ease; }
+  .lang-btn.active { background: linear-gradient(135deg, var(--gold), var(--gold-deep)); color: #240c21; }
+  #music-toggle { pointer-events:all; width:38px; height:38px; border-radius:50%; background:var(--panel-solid); border:1px solid var(--line); display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:1rem; color:var(--gold); box-shadow:0 4px 15px rgba(0,0,0,0.3); transition: transform 0.3s ease;}
+  #music-toggle:hover { transform: scale(1.1); }
 
   /* Premium Typographical Systems */
-  .eyebrow { letter-spacing: 0.25em; text-transform: uppercase; font-size: 0.7rem; color: var(--muted); font-weight: 700; text-align: center; }
+  .eyebrow { letter-spacing: 0.25em; text-transform: uppercase; font-size: 0.7rem; color: var(--gold-deep); font-weight: 700; text-align: center; margin-bottom: 8px;}
   h1.title {
     font-family: 'Philosopher', serif; font-weight: 700; font-size: clamp(1.8rem, 5.2vw, 3.4rem); line-height: 1.2; text-align: center;
     background: linear-gradient(180deg, var(--text) 10%, var(--gold-bright) 60%, var(--gold) 100%);
     -webkit-background-clip: text; background-clip: text; color: transparent;
-    text-shadow: 0 0 40px rgba(245,192,112,0.3);
+    text-shadow: 0 0 30px rgba(249,211,129,0.3);
   }
 
   /* Structural Button Layout Components */
   .btn {
     appearance: none; border: none; cursor: pointer; font-family: 'Manrope'; font-weight: 700; letter-spacing: 0.02em;
     padding: 14px 28px; border-radius: 999px; font-size: 0.95rem; position: relative; overflow: hidden;
-    background: linear-gradient(135deg, var(--gold), var(--gold-deep)); color: #160a2b;
-    box-shadow: 0 6px 20px rgba(245,192,112,0.25), inset 0 1px 0 rgba(255,255,255,0.4);
-    transition: transform .18s ease, box-shadow .18s ease, filter .18s; user-select: none;
+    background: linear-gradient(135deg, var(--gold), var(--gold-deep)); color: #240c21;
+    box-shadow: 0 6px 20px rgba(249,211,129,0.25), inset 0 1px 0 rgba(255,255,255,0.5);
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s ease, filter 0.25s; user-select: none;
   }
-  .btn::after { content: ""; position: absolute; top: 0; left: -60%; width: 35%; height: 100%; background: linear-gradient(120deg, transparent, rgba(255,255,255,0.5), transparent); transform: skewX(-20deg); animation: flashStreak 3.5s ease-in-out infinite; }
+  .btn::after { content: ""; position: absolute; top: 0; left: -60%; width: 35%; height: 100%; background: linear-gradient(120deg, transparent, rgba(255,255,255,0.6), transparent); transform: skewX(-20deg); animation: flashStreak 4s ease-in-out infinite; }
   @keyframes flashStreak { 0% { left: -60%; } 40% { left: 120%; } 100% { left: 120%; } }
-  .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(245,192,112,0.4); filter: brightness(1.05); }
+  .btn:hover { transform: translateY(-3px); box-shadow: 0 12px 25px rgba(249,211,129,0.4); filter: brightness(1.08); }
   .btn:active { transform: translateY(1px); }
-  .btn.ember { background: linear-gradient(135deg, var(--ember), var(--lantern)); color: #fff; box-shadow: 0 6px 20px rgba(255,117,81,0.3); }
+  .btn.ember { background: linear-gradient(135deg, var(--ember), var(--lantern)); color: #fff; box-shadow: 0 6px 20px rgba(226,84,99,0.3); }
 
-  /* STAGE 1: SYSTEM WELCOME NODE (KAZUHA REDESIGN) */
+  /* STAGES */
   #stage-welcome { justify-content: center; min-height: 100vh; gap: 24px; }
   .welcome-wrap { display: flex; flex-direction: column; align-items: center; max-width: 500px; width: 100%; text-align: center; gap: 20px; }
-  .kazuha-container { position: relative; width: 100%; max-width: 480px; height: 190px; border-radius: 16px; overflow: hidden; border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; box-shadow: 0 15px 40px rgba(0,0,0,0.4); }
-  .kazuha-aura { position: absolute; inset: -20%; background: radial-gradient(circle, rgba(245,192,112,0.3), rgba(212,171,247,0.2), transparent 70%); filter: blur(15px); animation: auraPulse 4s ease-in-out infinite; }
-  @keyframes auraPulse { 0%,100% { transform: scale(0.96); opacity: 0.7; } 50% { transform: scale(1.04); opacity: 1; } }
-  .kazuha-img { width: 100%; height: 100%; object-fit: cover; z-index: 2; animation: floatGfx 6s ease-in-out infinite; }
-  @keyframes floatGfx { 0%,100% { transform: scale(1); } 50% { transform: scale(1.03); } }
-
+  
   .speech-bubble {
     background: var(--panel); border: 1px solid var(--line); border-radius: 16px;
-    padding: 16px 20px; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-    font-family: 'PT Serif', serif; font-size: 1.05rem; font-style: italic; color: var(--gold-bright);
-    box-shadow: 0 8px 32px rgba(0,0,0,0.3); position: relative; line-height: 1.5;
+    padding: 20px 24px; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    font-family: 'PT Serif', serif; font-size: 1.1rem; font-style: italic; color: var(--gold-bright);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2); position: relative; line-height: 1.6;
   }
 
-  /* STAGE 2: MUSIC TRACK COGNITION CONTROLLER */
+  /* Music Selection */
   #stage-music-select { justify-content: center; min-height: 100vh; gap: 28px; }
   .track-grid { display: flex; flex-direction: column; gap: 14px; width: 100%; max-width: 420px; }
   .track-card {
     background: var(--panel); border: 1px solid var(--line); border-radius: 14px;
     padding: 18px; display: flex; align-items: center; gap: 16px; cursor: pointer;
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); backdrop-filter: blur(12px);
   }
-  .track-card:hover { border-color: var(--gold); transform: translateX(5px); background: rgba(80, 25, 90, 0.4); }
-  .track-card.selected { border-color: var(--gold); background: linear-gradient(90deg, rgba(245,192,112,0.15), rgba(80, 25, 90, 0.6)); box-shadow: 0 0 20px rgba(245,192,112,0.25); }
-  .track-icon { width: 44px; height: 44px; border-radius: 50%; background: rgba(245,192,112,0.15); display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 1.3rem; flex-shrink: 0; transition: transform 0.3s; }
-  .track-card.selected .track-icon { transform: rotate(15deg) scale(1.05); color: #fff; background: var(--gold-deep); box-shadow: 0 0 15px var(--gold); }
+  .track-card:hover { border-color: var(--gold); transform: translateX(6px); background: rgba(94, 34, 70, 0.5); }
+  .track-card.selected { border-color: var(--gold); background: linear-gradient(90deg, rgba(249,211,129,0.2), rgba(94, 34, 70, 0.7)); box-shadow: 0 0 25px rgba(249,211,129,0.2); }
+  .track-icon { width: 44px; height: 44px; border-radius: 50%; background: rgba(249,211,129,0.2); display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 1.3rem; flex-shrink: 0; transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); }
+  .track-card.selected .track-icon { transform: rotate(15deg) scale(1.1); color: #fff; background: var(--gold-deep); box-shadow: 0 0 20px var(--gold); }
   .track-info { display: flex; flex-direction: column; text-align: left; }
   .track-name { font-weight: 700; font-size: 1rem; color: var(--text); }
-  .track-desc { font-size: 0.8rem; color: var(--muted); margin-top: 3px; }
+  .track-desc { font-size: 0.8rem; color: var(--muted); margin-top: 4px; line-height: 1.3;}
 
-  /* STAGE 3: INTERACTIVE WISH MACHINE BANNER */
-  #stage-gacha { justify-content: flex-start; padding-top: 75px; gap: 24px; }
-  .featured-row { display: flex; gap: 12px; justify-content: center; width: 100%; max-width: 820px; }
-  .char-card {
-    position: relative; width: 32%; max-width: 170px; aspect-ratio: 1 / 1.48; border-radius: 12px; overflow: hidden;
-    border: 1px solid var(--line); background: var(--card-dark);
-    display: flex; flex-direction: column; align-items: center; justify-content: flex-end; padding-bottom: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5); transition: transform 0.3s; backdrop-filter: blur(8px);
-  }
-  .char-card:hover { transform: translateY(-4px); border-color: var(--gold); box-shadow: 0 15px 35px rgba(245,192,112,0.2); }
-  .char-card .rays { position: absolute; inset: 0; background: conic-gradient(from 0deg, transparent 0deg, rgba(245,192,112,0.12) 15deg, transparent 30deg); animation: spinWheel 15s linear infinite; opacity: 0.8; pointer-events: none; }
-  @keyframes spinWheel { to { transform: rotate(360deg); } }
-  .char-svg { width: 62%; aspect-ratio: 1; margin-bottom: 8px; z-index: 2; border-radius: 50%; overflow: hidden; border: 2px solid var(--line); background: #000; display:flex; align-items:center; justify-content:center; box-shadow: 0 5px 15px rgba(0,0,0,0.5);}
-  .char-svg img { width: 100%; height: 100%; object-fit: cover; }
-  .char-name { font-family: 'Philosopher', serif; font-size: 0.95rem; z-index: 2; color: var(--gold-bright); font-weight: 700; text-shadow: 0 2px 4px rgba(0,0,0,0.8); }
-  .char-stars { color: var(--gold); font-size: 0.65rem; letter-spacing: 1px; z-index: 2; margin-top: 2px; }
-
+  /* Gacha / Wish System */
+  #stage-gacha { justify-content: center; padding-top: 40px; gap: 24px; min-height: 100vh;}
   .wish-panel {
     background: var(--panel); border: 1px solid var(--line); border-radius: 18px;
-    padding: 22px; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-    width: 100%; max-width: 450px; display: flex; flex-direction: column; align-items: center; gap: 14px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    padding: 26px; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    width: 100%; max-width: 450px; display: flex; flex-direction: column; align-items: center; gap: 16px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2); transition: transform 0.4s ease;
   }
-  .currency { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 1.05rem; color: var(--gold-bright); }
-  .primogem { width: 20px; height: 20px; background: conic-gradient(from 45deg, var(--gold), #fff, var(--gold-deep)); clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); display: inline-block; animation: gemSpin 4s linear infinite; }
-  @keyframes gemSpin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-  .guarantee-note { font-size: 0.78rem; color: var(--muted); text-align: center; line-height: 1.45; }
+  .wish-progress { font-family: 'Philosopher', serif; font-size: 1.4rem; color: var(--gold-bright); font-weight: 700;}
+  .guarantee-note { font-size: 0.85rem; color: var(--muted); text-align: center; line-height: 1.5; font-style: italic;}
 
-  #history { width: 100%; max-width: 450px; display: flex; flex-direction: column; gap: 6px; }
-  .history-title { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); text-align: center; }
-  #historyList { display: flex; flex-direction: column; gap: 6px; max-height: 150px; overflow-y: auto; }
-  .history-item { display: flex; align-items: center; gap: 10px; background: rgba(30,10,40,0.5); border: 1px solid var(--line); border-radius: 8px; padding: 8px 12px; font-size: 0.85rem; }
-  .history-item .g { width: 24px; height: 24px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; border-radius: 50%; overflow: hidden; background: #000; border: 1px solid var(--line); }
-  .history-item .g img { width: 100%; height: 100%; object-fit: cover; }
-  .history-item .n.r5 { color: var(--gold); } .history-item .n.r4 { color: var(--violet); }
-
-  /* CINEMATIC GACHA METEOR FLIGHT ENGINE OVERLAY */
-  #pull-overlay { position: fixed; inset: 0; z-index: 100; display: none; align-items: center; justify-content: center; overflow: hidden; background: #080312; }
+  /* Meteor Animation */
+  #pull-overlay { position: fixed; inset: 0; z-index: 100; display: none; align-items: center; justify-content: center; overflow: hidden; background: rgba(15, 5, 20, 0.8); backdrop-filter: blur(4px); }
   #pull-overlay.active { display: flex; }
   .meteor {
-    position: absolute; top: -20%; right: -20%; width: 35px; height: 35px; border-radius: 50%; opacity: 0;
+    position: absolute; top: -20%; right: -20%; width: 40px; height: 40px; border-radius: 50%; opacity: 0;
     background: radial-gradient(circle, #ffffff, var(--rarity-color, var(--gold)) 45%, transparent 70%);
-    box-shadow: 0 0 60px 20px var(--rarity-color, var(--gold)), 0 0 140px 50px rgba(245,192,112,0.4);
+    box-shadow: 0 0 80px 25px var(--rarity-color, var(--gold)), 0 0 150px 60px rgba(249,211,129,0.5);
     will-change: transform, top, right;
   }
   .meteor::after {
-    content: ""; position: absolute; top: 50%; left: 50%; width: 500px; height: 8px;
+    content: ""; position: absolute; top: 50%; left: 50%; width: 600px; height: 10px;
     background: linear-gradient(90deg, transparent, var(--rarity-color, var(--gold)) 60%, #ffffff);
-    transform: translate(-100%, -50%) rotate(-38deg); transform-origin: right center; filter: blur(1px);
+    transform: translate(-100%, -50%) rotate(-38deg); transform-origin: right center; filter: blur(2px);
   }
-  .meteor.streak { animation: meteorTrack 0.65s cubic-bezier(0.1, 1, 0.1, 1) forwards; }
-  @keyframes meteorTrack { 0% { opacity: 0; top: -20%; right: -20%; transform: scale(0.4); } 12% { opacity: 1; } 100% { opacity: 1; top: 65%; right: 65%; transform: scale(1.5); } }
+  .meteor.streak { animation: meteorTrack 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
+  @keyframes meteorTrack { 0% { opacity: 0; top: -20%; right: -20%; transform: scale(0.3); } 15% { opacity: 1; } 100% { opacity: 1; top: 60%; right: 60%; transform: scale(1.8); } }
   
-  .impact-flash { position: absolute; inset: 0; background: radial-gradient(circle at 35% 65%, #xfffff, transparent 75%); opacity: 0; pointer-events: none; }
-  .impact-flash.go { animation: flashBurst 0.35s ease-out forwards; }
+  .impact-flash { position: absolute; inset: 0; background: radial-gradient(circle at 40% 60%, #ffffff, transparent 75%); opacity: 0; pointer-events: none; }
+  .impact-flash.go { animation: flashBurst 0.5s ease-out forwards; }
   @keyframes flashBurst { 0% { opacity: 1; } 100% { opacity: 0; } }
-  .skip-hint { position: absolute; bottom: 6vh; color: var(--muted); font-size: 0.8rem; letter-spacing: 0.05em; opacity: 0.6; animation: alphaPulse 1.8s ease-in-out infinite; }
-  @keyframes alphaPulse { 0%, 100% { opacity: 0.3; } 50% { opacity: 0.8; } }
 
-  /* PREMIUM MODAL RESULT COMPONENT DISPLAY */
-  #result-overlay { position: fixed; inset: 0; z-index: 110; display: none; align-items: center; justify-content: center; background: rgba(10,5,20,0.92); padding: 16px; backdrop-filter: blur(8px); }
-  #result-overlay.active { display: flex; }
-  .result-card { width: 100%; max-width: 390px; border-radius: 20px; padding: 36px 24px; text-align: center; position: relative; border: 1px solid var(--line); }
-  .result-card.r5 { background: linear-gradient(160deg, #3d1b28, #18091a 75%); box-shadow: 0 0 60px rgba(245,192,112,0.3); }
-  .result-card.r4 { background: linear-gradient(160deg, #2b1c42, #18091a 75%); box-shadow: 0 0 50px rgba(212,171,247,0.25); }
-  .result-glyph { width: 86px; height: 86px; margin: 0 auto 16px; border-radius: 50%; overflow: hidden; border: 2px solid var(--line); background: #000; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 20px rgba(0,0,0,0.5); }
-  .result-glyph img { width: 100%; height: 100%; object-fit: cover; }
-  .result-stars { letter-spacing: 3px; font-size: 1.1rem; margin-bottom: 4px; }
-  .result-stars.r5 { color: var(--gold); } .result-stars.r4 { color: var(--violet); }
-  .result-kind { text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.65rem; color: var(--muted); margin-bottom: 8px; }
-  .result-title { font-family: 'Philosopher', serif; font-size: 1.4rem; margin-bottom: 12px; color: var(--text); font-weight: 700; }
-  .result-body { font-family: 'PT Serif', serif; font-size: 1.05rem; line-height: 1.55; color: var(--gold-bright); }
-  .result-card .close-btn { margin-top: 24px; width: 100%; }
+  /* Result Modal */
+  #result-overlay { position: fixed; inset: 0; z-index: 110; display: none; align-items: center; justify-content: center; background: rgba(20,8,30,0.85); padding: 16px; backdrop-filter: blur(10px); opacity: 0; transition: opacity 0.4s ease;}
+  #result-overlay.active { display: flex; opacity: 1; }
+  .result-card { width: 100%; max-width: 420px; border-radius: 24px; padding: 40px 24px; text-align: center; position: relative; border: 1px solid var(--line); transform: scale(0.9); transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); }
+  #result-overlay.active .result-card { transform: scale(1); }
+  .result-card.r5 { background: linear-gradient(160deg, #4d1d32, #210d24 80%); box-shadow: 0 0 70px rgba(249,211,129,0.3); }
+  
+  .result-stars { letter-spacing: 4px; font-size: 1.2rem; margin-bottom: 8px; color: var(--gold); text-shadow: 0 0 10px rgba(249,211,129,0.5);}
+  .result-kind { text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.7rem; color: var(--muted); margin-bottom: 12px; font-weight: 700;}
+  .result-title { font-family: 'Philosopher', serif; font-size: 1.6rem; margin-bottom: 16px; color: var(--text); font-weight: 700; line-height: 1.2;}
+  .result-body { font-family: 'PT Serif', serif; font-size: 1.15rem; line-height: 1.6; color: var(--gold-bright); font-style: italic;}
+  .result-card .close-btn { margin-top: 28px; width: 100%; }
 
-  /* STAGE 4: CAKE CEREMONY AND CELEBRATION MATRIX */
+  /* Cake Stage */
   #stage-cake { justify-content: center; min-height: 100vh; gap: 24px; }
-  .party-zone { display: flex; flex-direction: column; align-items: center; max-width: 460px; width: 100%; text-align: center; gap: 20px; }
-  .cake-box { position: relative; width: 190px; height: 190px; margin: 10px 0; cursor: pointer; }
-  .cake-svg { width: 100%; height: 100%; filter: drop-shadow(0 15px 30px rgba(0,0,0,0.6)); transition: transform 0.3s ease; }
-  .cake-box:hover .cake-svg { transform: scale(1.05); }
+  .party-zone { display: flex; flex-direction: column; align-items: center; max-width: 480px; width: 100%; text-align: center; gap: 20px; }
+  .cake-box { position: relative; width: 220px; height: 220px; margin: 10px 0; cursor: pointer; }
+  .cake-svg { width: 100%; height: 100%; filter: drop-shadow(0 15px 35px rgba(0,0,0,0.4)); transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); }
+  .cake-box:hover .cake-svg { transform: scale(1.08); }
   .flame { animation: windFlicker 0.6s ease-in-out infinite alternate; transform-origin: center bottom; }
   @keyframes windFlicker { 0% { transform: scale(0.9) rotate(-3deg); opacity: 0.85; } 100% { transform: scale(1.1) rotate(3deg); opacity: 1; } }
   .cake-box.cut .flame { display: none !important; }
-  .cake-instructions { font-size: 0.85rem; color: var(--gold-bright); font-weight: 700; letter-spacing: 0.05em; animation: alphaPulse 1.5s infinite; text-shadow: 0 2px 4px rgba(0,0,0,0.5);}
-
-  .chibi-row { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; width: 100%; margin-top: 10px; }
-  .chibi-wrapper { width: 62px; height: 62px; background: rgba(245,192,112,0.1); border: 2px solid var(--line); border-radius: 50%; overflow: hidden; padding: 2px; box-shadow: 0 5px 15px rgba(0,0,0,0.4);}
-  .chibi-wrapper img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
-
-  @media (max-width: 480px) {
-    .char-card { padding-bottom: 8px; }
-    .char-name { font-size: 0.8rem; }
-    .wish-panel { padding: 16px; }
-    .featured-row { gap: 8px; }
-  }
+  .cake-instructions { font-size: 0.9rem; color: var(--gold-bright); font-weight: 700; letter-spacing: 0.08em; animation: alphaPulse 2s infinite; text-shadow: 0 2px 8px rgba(0,0,0,0.4);}
+  @keyframes alphaPulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
 </style>
 </head>
 <body>
@@ -241,167 +198,130 @@
   <button id="music-toggle" title="Mute/Unmute">🔇</button>
 </div>
 
-<!-- ============ STAGE 1: SYSTEM WELCOME NODE (KAZUHA) ============ -->
+<!-- ============ STAGE 1: WELCOME ============ -->
 <section class="stage active" id="stage-welcome">
   <div class="welcome-wrap">
-    <div class="kazuha-container">
-      <div class="kazuha-aura"></div>
-      <img class="kazuha-img" id="kazuhaImg" src="brave_screenshot_cdn.wallpapersafari.com.jpg" alt="Kazuha Landscape">
-    </div>
-    <div class="eyebrow" id="txtWelcomeEyebrow">STATION I · COORDINATES VERIFIED</div>
-    <h1 class="title" id="txtWelcomeTitle">Kazuha Greets You</h1>
+    <div class="eyebrow" id="txtWelcomeEyebrow">A Special Day Begins</div>
+    <h1 class="title" id="txtWelcomeTitle">Happy Birthday!</h1>
     <div class="speech-bubble" id="speechBubble">...</div>
-    <button class="btn ember" id="toStage2Btn">Proceed ✦</button>
+    <button class="btn ember" id="toStage2Btn">Begin the Journey ✦</button>
   </div>
 </section>
 
-<!-- ============ STAGE 2: MUSIC TRACK COGNITION CONTROLLER ============ -->
+<!-- ============ STAGE 2: MUSIC ============ -->
 <section class="stage" id="stage-music-select">
   <div class="welcome-wrap">
-    <div class="eyebrow" id="txtMusicEyebrow">STATION II · AUDIO COGNITION LAYER</div>
-    <h1 class="title" id="txtMusicTitle">Select Background Record</h1>
-    <p style="font-size:0.85rem; color:var(--muted); margin-top:-10px; text-align:center;" id="txtMusicSub">Choose an integrated indie stream signature before parsing operational modules onwards</p>
+    <div class="eyebrow" id="txtMusicEyebrow">Set the Mood</div>
+    <h1 class="title" id="txtMusicTitle">Choose Our Melody</h1>
+    <p style="font-size:0.9rem; color:var(--muted); margin-top:-10px; text-align:center;" id="txtMusicSub">Pick a song to accompany us on this little adventure.</p>
     
     <div class="track-grid">
       <div class="track-card selected" data-track="0">
-        <div class="track-icon">🍃</div>
+        <div class="track-icon">✨</div>
         <div class="track-info">
           <div class="track-name">Tip Toe — HYBS</div>
-          <div class="track-desc" id="tDesc0">Groovy, warm, and exceptionally smooth birthday atmosphere</div>
+          <div class="track-desc" id="tDesc0">Warm, groovy, and perfectly relaxed</div>
         </div>
       </div>
       <div class="track-card" data-track="1">
-        <div class="track-icon">🔥</div>
+        <div class="track-icon">🌅</div>
         <div class="track-info">
           <div class="track-name">Lovers Rock — TV Girl</div>
-          <div class="track-desc" id="tDesc1">Vintage lo-fi loop, comforting retro indie-pop nostalgia</div>
+          <div class="track-desc" id="tDesc1">Nostalgic, comforting, and deeply soothing</div>
         </div>
       </div>
       <div class="track-card" data-track="2">
-        <div class="track-icon">💧</div>
+        <div class="track-icon">💖</div>
         <div class="track-info">
           <div class="track-name">Until I Found You — Stephen Sanchez</div>
-          <div class="track-desc" id="tDesc2">Romantic, timeless acoustic warmth for a perfect heartfelt moment</div>
+          <div class="track-desc" id="tDesc2">Romantic, timeless, and completely from the heart</div>
         </div>
       </div>
     </div>
     
-    <button class="btn" id="toStage3Btn">Lock Track & Step Onwards ✦</button>
+    <button class="btn" id="toStage3Btn">Lock in Track ✦</button>
   </div>
 </section>
 
-<!-- ============ STAGE 3: INTERACTIVE WISH MACHINE BANNER ============ -->
+<!-- ============ STAGE 3: WISH SYSTEM (MAX 5) ============ -->
 <section class="stage" id="stage-gacha">
-  <div class="eyebrow" id="txtEventEyebrow">STATION III · REVELATION CONSOLE</div>
-  <div class="title" id="txtEventTitle">«Stellar Alignment Banner»</div>
+  <div class="eyebrow" id="txtEventEyebrow">The Stars Align</div>
+  <div class="title" id="txtEventTitle" style="margin-bottom: 20px;">5 Wishes for You</div>
   
-  <div class="featured-row">
-    <div class="char-card">
-      <div class="rays"></div>
-      <div class="char-svg" id="boxKazuha"></div>
-      <div class="char-name">Kazuha</div>
-      <div class="char-stars">★★★★★</div>
-    </div>
-    <div class="char-card">
-      <div class="rays"></div>
-      <div class="char-svg" id="boxXiao"></div>
-      <div class="char-name">Xiao</div>
-      <div class="char-stars">★★★★★</div>
-    </div>
-    <div class="char-card">
-      <div class="rays"></div>
-      <div class="char-svg" id="boxKinich"></div>
-      <div class="char-name">Kinich</div>
-      <div class="char-stars">★★★★★</div>
-    </div>
-  </div>
-
   <div class="wish-panel">
-    <div class="currency"><span class="primogem"></span> <span id="gemCount">1600</span> <span id="txtGemsLabel">Primogems</span></div>
-    <button class="btn" id="pullBtn">Wish ×1 <span style="opacity:0.75; font-weight:600;">(160)</span></button>
+    <div class="wish-progress" id="wishProgress">Wishes Remaining: 5</div>
+    <button class="btn" id="pullBtn" style="width: 100%; padding: 18px; font-size: 1.1rem;">Make a Wish ✦</button>
     <p class="guarantee-note" id="txtGuaranteeDesc">...</p>
   </div>
-
-  <div id="history">
-    <div class="history-title" id="txtHistTitle">Acquisition History Log</div>
-    <div id="historyList"></div>
-  </div>
 </section>
 
-<!-- ============ STAGE 4: CAKE CEREMONY AND CELEBRATION MATRIX ============ -->
+<!-- ============ STAGE 4: CAKE CEREMONY ============ -->
 <section class="stage" id="stage-cake">
   <div class="party-zone">
-    <div class="eyebrow" id="txtFinaleEyebrow">STATION IV · TRANSFORUM FINALE</div>
+    <div class="eyebrow" id="txtFinaleEyebrow">The Final Moment</div>
     <h1 class="title" id="txtFinaleTitle">Happy Birthday, Alina!</h1>
     
-    <div class="speech-bubble" id="finaleSpeech" style="font-style: normal; text-align: center;">...</div>
+    <div class="speech-bubble" id="finaleSpeech" style="font-style: normal; text-align: center; margin-bottom: 20px;">...</div>
 
     <div class="cake-box" id="interactiveCake">
       <svg class="cake-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="30" y="110" width="140" height="60" rx="10" fill="#a4587a" stroke="#260e33" stroke-width="4"/>
-        <rect x="45" y="65" width="110" height="45" rx="8" fill="#c37d9f" stroke="#260e33" stroke-width="4"/>
+        <rect x="30" y="110" width="140" height="60" rx="10" fill="#a4587a" stroke="#3a1132" stroke-width="4"/>
+        <rect x="45" y="65" width="110" height="45" rx="8" fill="#e25463" stroke="#3a1132" stroke-width="4"/>
         <path d="M45 75 Q55 85 65 75 T85 75 T105 75 T125 75 T145 75 T155 75 L155 65 L45 65 Z" fill="#ffffff" opacity="0.95"/>
-        <path d="M30 120 Q45 135 60 120 T90 120 T120 120 T150 120 T170 120 L170 110 L30 110 Z" fill="#f5c070" opacity="0.95"/>
-        <rect x="96" y="35" width="8" height="30" rx="2" fill="#ff7551"/>
+        <path d="M30 120 Q45 135 60 120 T90 120 T120 120 T150 120 T170 120 L170 110 L30 110 Z" fill="#f9d381" opacity="0.95"/>
+        <rect x="96" y="35" width="8" height="30" rx="2" fill="#ff7f66"/>
         <line x1="100" y1="35" x2="100" y2="28" stroke="#ffffff" stroke-width="2"/>
-        <path class="flame" d="M100 8 C96 15 96 25 100 27 C104 25 104 15 100 8 Z" fill="#ffba08" filter="drop-shadow(0 0 6px #ff7551)"/>
+        <path class="flame" d="M100 8 C96 15 96 25 100 27 C104 25 104 15 100 8 Z" fill="#f9d381" filter="drop-shadow(0 0 8px #ff7f66)"/>
       </svg>
     </div>
-    <div class="cake-instructions" id="txtCakeAction">✦ TAP THE CAKE TO BLOW CANDLE ✦</div>
-
-    <div class="chibi-row">
-      <div class="chibi-wrapper" id="chibi1"></div>
-      <div class="chibi-wrapper" id="chibi2"></div>
-      <div class="chibi-wrapper" id="chibi3"></div>
-      <div class="chibi-wrapper" id="chibi4"></div>
-      <div class="chibi-wrapper" id="chibi5"></div>
-    </div>
+    <div class="cake-instructions" id="txtCakeAction">✦ TAP TO BLOW OUT THE CANDLE ✦</div>
   </div>
 </section>
 
-<!-- ============ CINEMATIC GACHA METEOR FLIGHT ENGINE OVERLAY ============ -->
+<!-- ============ METEOR OVERLAY ============ -->
 <div id="pull-overlay">
   <div class="impact-flash" id="impactFlash"></div>
   <div class="meteor" id="meteorItem"></div>
-  <div class="skip-hint" id="txtSkipLabel">Bypass Cutscene Module</div>
 </div>
 
-<!-- ============ GACHA MODAL WINNER ARCHIVE LAYER ============ -->
+<!-- ============ MODAL RESULT ============ -->
 <div id="result-overlay">
-  <div class="result-card" id="resultCard">
-    <div class="result-glyph" id="resultGlyph"></div>
+  <div class="result-card r5" id="resultCard">
     <div class="result-stars" id="resultStars">★★★★★</div>
     <div class="result-kind" id="resultKind">System Category</div>
     <div class="result-title" id="resultTitle">Item Title Name</div>
     <div class="result-body" id="resultBody">Configuration description logs here.</div>
-    <button class="btn close-btn" id="closeResultBtn">Collect and Return ✦</button>
+    <button class="btn close-btn" id="closeResultBtn">Hold Close to Heart ✦</button>
   </div>
 </div>
 
 <script>
 /* ============================================================
-   PERSONALIZATION CONFIG MATRIX DATABASES
+   HEARTFELT 5-WISH CONFIGURATION (HUMAN & DEEP)
    ============================================================ */
-const CONFIG = {
-  gifts: [
-    {
-      en: { title: "🎁 Star Tier Drop: The Nexus Note", body: "Dear Alina, your first 5★ birthday drop activates! May your path through this upcoming year track zero framing latency and constant optimal performance. You are the definitive anchor of our party line!" },
-      ru: { title: "🎁 5★ Дроп: Звездный Нексус", body: "Дорогая Алина, твой первый гарантированный подарок активирован! Пусть грядущий год принесет абсолютную стабильность, отсутствие пинга в жизни и бесконечный запас сил. Ты — главное украшение нашей тимы!" }
-    },
-    {
-      en: { title: "🎁 Sacred Archive Bundle: Resin Recharge", body: "Second absolute drop secured, Alina! Granting you an infinite pool of mental Original Resin. May every critical domain trial in life yield perfect artifact configurations on attempt sequence one!" },
-      ru: { title: "🎁 Секретный Архив: Бесконечная Смола", body: "Второй легендарный дроп у тебя, Алина! Дарим тебе неиссякаемый запас ментальной Первородной Смолы. Пусть любой жизненный данж закрывается на 3 звезды с идеальными статами в артефактах с первого захода!" }
-    },
-    {
-      en: { title: "🎁 Ultimate Constellation Unlocked: C6 Alina", body: "The peak birthday matrix is complete! Your C6 constellation configuration triggers globally. You burn twice as radiant as Natlan's deepest volcanic faultlines. Never stop exploring!" },
-      ru: { title: "🎁 Ультимативное Созвездие: С6 Алина", body: "Главный праздничный манифест активирован! Твое шестое созвездие разблокировано по всему миру. Ты горишь ярче, чем пламя Натлана. Никогда не сомневайся в своей уникальности!" }
-    }
-  ]
-};
+const HEARTFELT_WISHES = [
+  {
+    en: { title: "You Are My Light", body: "Every moment with you feels a little brighter. I wanted to start this off by simply reminding you of how deeply important you are to me, today and always." },
+    ru: { title: "Ты — мой свет", body: "Каждое мгновение с тобой кажется светлее. Я хотел начать с того, чтобы просто напомнить тебе, насколько ты важна для меня, сегодня и всегда." }
+  },
+  {
+    en: { title: "Endless Peace", body: "My second wish is for your peace of mind. I hope this coming year wraps you in comfort, sweeps away your anxieties, and lets you breathe easily." },
+    ru: { title: "Бесконечное спокойствие", body: "Мое второе желание — о твоем душевном покое. Пусть грядущий год укутает тебя уютом, заберет все тревоги и позволит дышать легко." }
+  },
+  {
+    en: { title: "Unwavering Support", body: "I promise to always be your safe harbor. Whenever the world gets too loud or too difficult, you never have to face it alone. I am always in your corner." },
+    ru: { title: "Нерушимая опора", body: "Я обещаю всегда быть твоей тихой гаванью. Когда мир становится слишком громким или тяжелым, тебе никогда не придется справляться с этим одной. Я всегда на твоей стороне." }
+  },
+  {
+    en: { title: "Beautiful Adventures", body: "May we share countless more laughs, quiet evenings, and beautiful adventures together. My best memories are the ones that have you in them." },
+    ru: { title: "Прекрасные приключения", body: "Пусть впереди у нас будет еще множество улыбок, тихих вечеров и прекрасных приключений. Мои лучшие воспоминания — те, в которых есть ты." }
+  },
+  {
+    en: { title: "My Favorite Person", body: "The final and most important truth: you mean the absolute world to me. I love you deeply from the bottom of my heart. Happy Birthday, my wonderful Alina." },
+    ru: { title: "Мой любимый человек", body: "И последнее, самое важное: ты для меня — целый мир. Я люблю тебя всей душой и от всего сердца. С днём рождения, моя чудесная Алина." }
+  }
+];
 
-/* ============================================================
-   EXTERNAL INSTRUMENTAL MP3 LINKS INJECTION SYSTEM
-   ============================================================ */
 const SONGS_RECORDS_RESOURCES = [
   "HYBS - Tip Toe (Official Video).mp3",
   "Lovers rock fan.mp3",
@@ -409,116 +329,69 @@ const SONGS_RECORDS_RESOURCES = [
 ];
 
 /* ============================================================
-   AVATAR PORTRAIT IMAGE LINKS CONFIGURATION DICTIONARY
-   ============================================================ */
-const PORTRAIT_AVATAR_RESOURCES = {
-  kazuha: "image_81ec26.png",
-  xiao: "image_81ef84.jpg",
-  kinich: "image_819592.jpg",
-  columbina: "image_81964a.png",
-  sandrone: "image_818db2.jpg"
-};
-
-/* ============================================================
-   COMPACT INLINE CUSTOM INJECTION DICTIONARIES
+   LOCALIZATION STRINGS
    ============================================================ */
 const I18N = {
   en: {
-    welcomeEyebrow: "A Wandering Soul Arrives · Teyvat Coordinates",
-    welcomeTitle: "Kazuha Greets You",
-    bubbleNamed: "“As leaves dance and autumn winds sing, a distinct birthday melody echoes through the breeze.” Welcome, <span style='color:var(--gold-bright); font-weight:800;'>Alina</span>. Step forward into the core engine sequence—your cosmic alignment matrix is waiting.",
-    proceedBtn: "Activate Destiny Matrices ✦",
-    musicTitle: "Choose Background Record",
-    musicSub: "Pick an integrated audio layer to calibrate display vectors moving forward.",
-    lockTrackBtn: "Lock Signature Sound & Advance ✦",
-    tDesc0: "Groovy, warm, and smooth birthday atmosphere",
-    tDesc1: "Vintage lo-fi loop, comfort retro indie-pop nostalgia",
-    tDesc2: "Romantic, timeless acoustic warmth for a perfect heartfelt moment",
-    eventTitle: "«Wishes Ignite, Stars Align»",
-    gemsLabel: "Primogems",
-    guaranteeDesc: "Initial 3 wishes trigger fixed legendary 5★ birthday payload protocols. Successive rolls open access to funny companion notes, indie songs, and wanderers. Core systems update instantly.",
-    histTitle: "Acquisition History Log",
-    skipLabel: "Click anywhere to bypass sequence cutscene",
-    kindGift: "Legendary Birthday Gift", kindWish: "Destiny Declaration", kindSong: "Sonorous Soundwave", kindChar: "Companion Obtained",
-    wishTitle: "Cosmic Signal Transmitted", songTitle: "Audio Track Decoupled",
-    continueBtn: "Collect and Close Vector ✦",
-    wishes: [
-      "May your critical damage tracking in life hit a perfect 250% value with absolute minimal artifact friction this year!",
-      "Wishing you the ultimate zero-latency pacing of Kazuha's Anemo jumps across every real-world obstacle vector.",
-      "May your physical and mental resin pools stay permanently overcapped and auto-replenish without delay cycles!",
-      "To another magnificent rotation around the sun! May your real-world exploration rewards outscale any common standard chest loot.",
-      "You are officially rarer than a double soft-pity drop pulled back-to-back. Happy birthday, Alina!"
-    ],
-    songs: [
-      "Mondstadt Wind Folk — Recommended for quiet conceptual operations and breezy daylight walking loops",
-      "Inazuma Twilight Lo-fi — Calibrated perfectly for deep focus operations and late night engineering tasks",
-      "Fontaine Cinematic Ballet — An upbeat performance track optimized for high energy creative operations"
-    ],
-    charTitles: {
-      sandrone: "Marionette of the Fatui Harbingers",
-      kinich: "Saurian Hunter of Natlan",
-      columbina: "Damselette of the Fatui Harbingers",
-      kazuha: "Wandering Samurai of Inazuma",
-      xiao: "Vigilant Yaksha of Liyue"
-    }
+    welcomeEyebrow: "A Very Special Day",
+    welcomeTitle: "Happy Birthday, Alina!",
+    bubbleNamed: "“There is a warmth in the air today, a gentle reminder of how lucky the world is to have you in it.” <br><br>I made this little space just for you. Take a breath, smile, and let's begin.",
+    proceedBtn: "Begin the Journey ✦",
+    musicEyebrow: "Set the Mood",
+    musicTitle: "Choose Our Melody",
+    musicSub: "Pick a song to accompany us on this little adventure.",
+    lockTrackBtn: "Lock in Track & Continue ✦",
+    tDesc0: "Warm, groovy, and perfectly relaxed",
+    tDesc1: "Nostalgic, comforting, and deeply soothing",
+    tDesc2: "Romantic, timeless, and completely from the heart",
+    eventEyebrow: "From My Heart to Yours",
+    eventTitle: "5 Wishes for You",
+    guaranteeDesc: "I have gathered 5 very specific wishes for you. Take your time with each one.",
+    kindWish: "Heartfelt Wish",
+    continueBtn: "Hold Close to Heart ✦",
+    finaleEyebrow: "The Final Moment",
+    finaleTitle: "Happy Birthday!",
+    finaleAction: "✦ TAP TO BLOW OUT THE CANDLE ✦",
+    finaleSpeech: "The wishes are spoken, but the magic is just beginning. Make a secret wish of your own, blow out the candle, and let's celebrate you.",
+    wishProgress: "Wishes Remaining: ",
+    makeWishBtn: "Make a Wish ✦",
+    cakeBlown: "<strong>Beautiful!</strong> Your wish has been sent out into the universe. I hope this year brings you everything your heart desires. I love you! 🌟"
   },
   ru: {
-    welcomeEyebrow: "Странствующий по ветру · Координаты Тейвата",
-    welcomeTitle: "Кадзуха встречает тебя",
-    bubbleNamed: "«Опавшие листья расскажут мне тайну... Ветер принес чистую, праздничную мелодию твоей души». Добро пожаловать, <span style='color:var(--gold-bright); font-weight:800;'>Алина</span>. Сделай шаг навстречу судьбе — твоя звездная матрица желаний уже готова.",
-    proceedBtn: "Активировать Матрицу Судьбы ✦",
-    musicTitle: "Выбери Свой Аудиотрек",
-    musicSub: "Выберите звуковую дорожку для калибровки визуальных эффектов на следующих этапах.",
-    lockTrackBtn: "Зафиксировать Звук и Идти Далее ✦",
-    tDesc0: "Ритмичный, теплый и невероятно расслабляющий праздничный вайб",
-    tDesc1: "Винтажный lo-fi луп, окутывающий уютной инди-ностальгией",
-    tDesc2: "Романтичное, вечное акустическое тепло для самого трогательного момента",
-    eventTitle: "«Фонари взмывают, желания вспыхивают»",
-    gemsLabel: "Примогемов",
-    guaranteeDesc: "Первые 3 крутки гарантированно выдают уникальные 5★ подарки для Алины. Каждая последующая приносит забавные кастомные послания, треки и персонажей Тейвата. Примогемы бесконечны.",
-    histTitle: "История полученных наград",
-    skipLabel: "Нажми в любое место для пропуска катсцены",
-    kindGift: "Легендарный Подарок", kindWish: "Пожелание Судьбы", kindSong: "Благословение Тейвата", kindChar: "Персонаж присоединен",
-    wishTitle: "Сигнал отправлен к звездам", songTitle: "Мелодия успешно разблокирована",
-    continueBtn: "Забрать в инвентарь ✦",
-    wishes: [
-      "Пусть твой критический урон в реальной жизни зафиксируется на отметке 250% при полном отсутствии гринда!",
-      "Желаем тебе идеальной легкости и маневренности Кадзухи для преодоления любых жизненных барьеров.",
-      "Пусть твоя ментальная смола никогда не уходит в оверкап и восполняется мгновенно без донатов!",
-      "С новым годом жизни! Пусть твой лут с ежедневных активностей превосходит содержимое Драгоценных сундуков.",
-      "Ты официально уникальнее, чем две леги подряд на первой крутке. С днем рождения, Алина!"
-    ],
-    songs: [
-      "Фолк Мондштадта — Рекомендуется для легких прогулок и уютных размышлений на свежем воздухе",
-      "Сумеречный Lo-Fi Инадзумы — Идеально откалиброван для ночной работы и максимальной концентрации",
-      "Кинематографичный балет Фонтейна — Энергичный трек для поднятия праздничного настроения"
-    ],
-    charTitles: {
-      sandrone: "Марионетка, Предвестница Фатуи",
-      kinich: "Охотник за заврианами из Натлана",
-      columbina: "Субретка, Предвестница Фатуи",
-      kazuha: "Странствующий самурай Инадзумы",
-      xiao: "Защитник Якса из Ли Юэ"
-    }
+    welcomeEyebrow: "Особенный День",
+    welcomeTitle: "С днём рождения, Алина!",
+    bubbleNamed: "«Сегодня в воздухе витает особое тепло, напоминающее о том, как миру повезло, что ты в нем есть.» <br><br>Я создал это маленькое пространство только для тебя. Улыбнись, и давай начнем.",
+    proceedBtn: "Начать путешествие ✦",
+    musicEyebrow: "Создаем настроение",
+    musicTitle: "Выбери нашу мелодию",
+    musicSub: "Выбери песню, которая будет сопровождать нас.",
+    lockTrackBtn: "Зафиксировать трек и идти дальше ✦",
+    tDesc0: "Теплая, ритмичная и невероятно расслабляющая",
+    tDesc1: "Ностальгическая, уютная и согревающая душу",
+    tDesc2: "Романтичная, вечная и идущая от самого сердца",
+    eventEyebrow: "От всего сердца",
+    eventTitle: "5 Желаний для Тебя",
+    guaranteeDesc: "Я собрал 5 особенных желаний только для тебя. Не спеши, прочти каждое.",
+    kindWish: "Искреннее Желание",
+    continueBtn: "Сохранить в сердце ✦",
+    finaleEyebrow: "Финальный Момент",
+    finaleTitle: "С днём рождения!",
+    finaleAction: "✦ НАЖМИ НА ТОРТ, ЧТОБЫ ЗАДУТЬ СВЕЧУ ✦",
+    finaleSpeech: "Мои слова сказаны, но волшебство только начинается. Загадай свое самое заветное желание, задуй свечу, и давай праздновать.",
+    wishProgress: "Осталось желаний: ",
+    makeWishBtn: "Загадать желание ✦",
+    cakeBlown: "<strong>Потрясающе!</strong> Твое желание отправлено во Вселенную. Я надеюсь, этот год принесет тебе всё, о чем ты мечтаешь. Я люблю тебя! 🌟"
   }
 };
 
-const RANDOM_CHAR_POOL = [
-  { key: "sandrone", element: "star", color: "var(--copper)", rarity: 5 },
-  { key: "kinich", element: "dendro", color: "var(--dendro)", rarity: 5 },
-  { key: "columbina", element: "star", color: "var(--violet)", rarity: 5 },
-  { key: "kazuha", element: "anemo", color: "var(--anemo)", rarity: 5 },
-  { key: "xiao", element: "anemo", color: "var(--violet)", rarity: 5 }
-];
-
 /* ============================================================
-   STATE LOADER MOTORS
+   STATE MANAGERS
    ============================================================ */
 let currentLang = 'ru';
 let activeTrackIdx = 0;
 let currentStage = 1;
 let totalWishesExecuted = 0;
-let totalPrimogemsAvailable = 1600;
+const MAX_WISHES = 5;
 let coreAudioContextActive = null;
 let currentNativeAudioNode = null;
 
@@ -534,20 +407,15 @@ function navigateToStage(stageNum) {
   if(stageNum === 4) $('stage-cake').classList.add('active');
 }
 
-/* ============================================================
-   LOCALIZATION REFRESH SYSTEM
-   ============================================================ */
 function rebuildUIStrings() {
   const t = getText();
   
-  // Welcome Stage
   $('txtWelcomeEyebrow').textContent = t.welcomeEyebrow;
   $('txtWelcomeTitle').textContent = t.welcomeTitle;
   $('toStage2Btn').textContent = t.proceedBtn;
   $('speechBubble').innerHTML = t.bubbleNamed;
   
-  // Music Stage
-  $('txtMusicEyebrow').textContent = t.welcomeEyebrow;
+  $('txtMusicEyebrow').textContent = t.musicEyebrow;
   $('txtMusicTitle').textContent = t.musicTitle;
   $('txtMusicSub').textContent = t.musicSub;
   $('toStage3Btn').textContent = t.lockTrackBtn;
@@ -555,22 +423,22 @@ function rebuildUIStrings() {
   $('tDesc1').textContent = t.tDesc1;
   $('tDesc2').textContent = t.tDesc2;
 
-  // Gacha Stage
-  $('txtEventEyebrow').textContent = t.welcomeEyebrow;
+  $('txtEventEyebrow').textContent = t.eventEyebrow;
   $('txtEventTitle').textContent = t.eventTitle;
-  $('txtGemsLabel').textContent = t.gemsLabel;
   $('txtGuaranteeDesc').textContent = t.guaranteeDesc;
-  $('txtHistTitle').textContent = t.histTitle;
-  $('txtSkipLabel').textContent = t.skipLabel;
+  $('pullBtn').textContent = t.makeWishBtn;
+  $('closeResultBtn').textContent = t.continueBtn;
+  $('wishProgress').textContent = t.wishProgress + (MAX_WISHES - totalWishesExecuted);
   
-  // Cake Stage
-  $('txtFinaleEyebrow').textContent = currentLang==='en'?'FINAL STAGE · CELEBRATION MATRIX':'ФИНАЛЬНЫЙ ЭТАП · ПРАЗДНИЧНАЯ МАТРИЦА';
-  $('txtFinaleTitle').textContent = currentLang==='en'?'Happy Birthday, Alina!':'С днём рождения, Алина!';
-  $('txtCakeAction').textContent = currentLang==='en'?'✦ TAP THE CAKE TO BLOW CANDLE ✦':'✦ НАЖМИ НА ТОРТ, ЧТОБЫ ЗАДУТЬ СВЕЧУ ✦';
+  $('txtFinaleEyebrow').textContent = t.finaleEyebrow;
+  $('txtFinaleTitle').textContent = t.finaleTitle;
+  $('txtCakeAction').textContent = t.finaleAction;
+  
   if(!cakeIsCutOrBlown) {
-    $('finaleSpeech').textContent = currentLang==='en'? 
-      "The planetary alignment is perfect! Alina, make a secret wish, clear the candle, and initialize the party loop!":
-      "Все планетные матрицы сошлись в одной точке! Алина, загадай самое заветное желание, нажми на торт, чтобы задуть свечу, и запусти праздничный цикл!";
+    $('finaleSpeech').innerHTML = t.finaleSpeech;
+  } else {
+    $('finaleSpeech').innerHTML = t.cakeBlown;
+    $('txtCakeAction').textContent = currentLang === 'en' ? "✦ FOREVER YOURS ✦" : "✦ НАВСЕГДА ТВОЙ ✦";
   }
 }
 
@@ -583,95 +451,105 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
 });
 
 /* ============================================================
-   CANVAS RENDERING ENGINE (ELEMENTAL FLOATING ICONS)
+   CANVAS: SMOOTH FLOATING BALLOONS
    ============================================================ */
 const canvas = $('canvas-bg');
 const ctx = canvas.getContext('2d');
-let floatingElements = [];
+let balloons = [];
 
 function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
 window.addEventListener('resize', resizeCanvas);
 resizeCanvas();
 
-const ELEMENT_COLORS = ['#f56d49', '#73ceb5', '#50c4f5', '#7bc43a']; 
+const BALLOON_COLORS = [
+  'rgba(255, 143, 171, 0.4)', // Pink
+  'rgba(249, 211, 129, 0.4)', // Gold
+  'rgba(181, 131, 219, 0.4)', // Purple
+  'rgba(255, 182, 163, 0.4)'  // Peach
+];
 
-function generateParticle() {
+function generateBalloon() {
   return {
     x: Math.random() * canvas.width,
-    y: canvas.height + Math.random() * 80,
-    size: Math.random() * 16 + 8,
-    speedY: Math.random() * 0.5 + 0.3,
+    y: canvas.height + Math.random() * 200,
+    size: Math.random() * 25 + 20,
+    speedY: Math.random() * 0.6 + 0.4,
     wobble: Math.random() * Math.PI * 2,
-    wobbleSpeed: Math.random() * 0.015 + 0.005,
-    color: ELEMENT_COLORS[Math.floor(Math.random() * ELEMENT_COLORS.length)],
-    alpha: Math.random() * 0.3 + 0.1,
-    type: Math.floor(Math.random() * 4) 
+    wobbleSpeed: Math.random() * 0.01 + 0.005,
+    color: BALLOON_COLORS[Math.floor(Math.random() * BALLOON_COLORS.length)]
   };
 }
 
-for(let i=0; i<25; i++) {
-  floatingElements.push(generateParticle());
-  floatingElements[i].y = Math.random() * canvas.height;
+for(let i=0; i<15; i++) {
+  let b = generateBalloon();
+  b.y = Math.random() * canvas.height;
+  balloons.push(b);
 }
 
-function drawIconMesh(ctx, x, y, size, type) {
+function drawBalloonShape(ctx, x, y, r, color) {
+  ctx.save();
+  ctx.fillStyle = color;
   ctx.beginPath();
-  if (type === 0) { 
-    ctx.moveTo(x, y - size); ctx.lineTo(x + size*0.7, y + size*0.6); ctx.lineTo(x - size*0.7, y + size*0.6);
-  } else if (type === 1) { 
-    ctx.arc(x, y, size * 0.5, 0, Math.PI * 2);
-  } else if (type === 2) { 
-    ctx.moveTo(x, y - size); ctx.quadraticCurveTo(x + size, y + size*0.4, x, y + size); ctx.quadraticCurveTo(x - size, y + size*0.4, x, y - size);
-  } else { 
-    ctx.moveTo(x, y - size); ctx.lineTo(x + size*0.6, y); ctx.lineTo(x, y + size); ctx.lineTo(x - size*0.6, y);
-  }
+  // Drawing a smooth balloon shape
+  ctx.moveTo(x, y);
+  ctx.bezierCurveTo(x - r, y, x - r, y - r * 2, x, y - r * 2);
+  ctx.bezierCurveTo(x + r, y - r * 2, x + r, y, x, y);
   ctx.fill();
+  
+  // Tie
+  ctx.beginPath();
+  ctx.moveTo(x, y);
+  ctx.lineTo(x - r*0.2, y + r*0.3);
+  ctx.lineTo(x + r*0.2, y + r*0.3);
+  ctx.fill();
+
+  // String
+  ctx.beginPath();
+  ctx.strokeStyle = "rgba(255,255,255,0.2)";
+  ctx.lineWidth = 1;
+  ctx.moveTo(x, y + r*0.3);
+  ctx.quadraticCurveTo(x - r*0.5, y + r*1.5, x, y + r*3);
+  ctx.stroke();
+  
+  ctx.restore();
 }
 
 function liveBackgroundRender() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  for(let i=0; i<floatingElements.length; i++) {
-    let p = floatingElements[i];
-    p.wobble += p.wobbleSpeed;
-    p.x += Math.sin(p.wobble) * 0.2;
-    p.y -= p.speedY;
-    if(p.y < -30) { floatingElements[i] = generateParticle(); p = floatingElements[i]; }
-    ctx.save(); ctx.globalAlpha = p.alpha; ctx.fillStyle = p.color;
-    drawIconMesh(ctx, p.x, p.y, p.size, p.type); ctx.restore();
+  for(let i=0; i<balloons.length; i++) {
+    let b = balloons[i];
+    b.wobble += b.wobbleSpeed;
+    b.x += Math.sin(b.wobble) * 0.3;
+    b.y -= b.speedY;
+    if(b.y < -150) { balloons[i] = generateBalloon(); b = balloons[i]; }
+    drawBalloonShape(ctx, b.x, b.y, b.size, b.color);
   }
   requestAnimationFrame(liveBackgroundRender);
 }
 requestAnimationFrame(liveBackgroundRender);
 
 /* ============================================================
-   NATIVE WEB AUDIO AUDIO PLAYBACK HARDWARE INTERACTION
+   AUDIO ENGINE
    ============================================================ */
 function initHardwareAudioEngine() {
   if (!coreAudioContextActive) {
     coreAudioContextActive = new (window.AudioContext || window.webkitAudioContext)();
   }
-  if (coreAudioContextActive.state === 'suspended') {
-    coreAudioContextActive.resume();
-  }
+  if (coreAudioContextActive.state === 'suspended') coreAudioContextActive.resume();
 }
 
-// ✨ OVERLAP FIX APPLIED HERE ✨
 function stopCurrentTrackResource() {
   if (currentNativeAudioNode) {
-    try { 
-      currentNativeAudioNode.pause(); 
-      currentNativeAudioNode.currentTime = 0; 
-    } catch(e){}
+    try { currentNativeAudioNode.pause(); currentNativeAudioNode.currentTime = 0; } catch(e){}
     currentNativeAudioNode = null;
   }
 }
 
 function runTrackPlaybackEngine() {
-  stopCurrentTrackResource(); // This instantly kills any old song before starting the new one!
+  stopCurrentTrackResource();
   initHardwareAudioEngine();
   
   const trackUrl = SONGS_RECORDS_RESOURCES[activeTrackIdx];
-
   let audioObject = new Audio();
   audioObject.src = trackUrl;
   audioObject.crossOrigin = "anonymous";
@@ -698,20 +576,15 @@ $('music-toggle').addEventListener('click', () => {
 });
 
 /* ============================================================
-   ROUTING AND NAVIGATION CONTROLLER PIPELINES
+   ROUTING
    ============================================================ */
-$('toStage2Btn').addEventListener('click', () => {
-  initHardwareAudioEngine();
-  navigateToStage(2);
-});
+$('toStage2Btn').addEventListener('click', () => { initHardwareAudioEngine(); navigateToStage(2); });
 
 document.querySelectorAll('.track-card').forEach(card => {
   card.addEventListener('click', () => {
     document.querySelectorAll('.track-card').forEach(c => c.classList.remove('selected'));
     card.classList.add('selected');
     activeTrackIdx = parseInt(card.dataset.track);
-    
-    // Play the new song instantly and stop the old one when they click a card!
     runTrackPlaybackEngine(); 
     $('music-toggle').textContent = '🔊';
   });
@@ -726,66 +599,36 @@ $('toStage3Btn').addEventListener('click', () => {
 });
 
 /* ============================================================
-   GACHA PROCESSING & SIMULATION MODULE
+   GACHA LOGIC (MAX 5 HEARTFELT WISHES)
    ============================================================ */
 let activeGachaCutsceneActive = false;
-let computedGachaDropObject = null;
+let currentWishData = null;
 
 function executeWishDrawSequence() {
-  if(activeGachaCutsceneActive) return;
+  if(activeGachaCutsceneActive || totalWishesExecuted >= MAX_WISHES) return;
   activeGachaCutsceneActive = true;
   
-  if(totalPrimogemsAvailable < 160) { totalPrimogemsAvailable = 1600; }
-  totalPrimogemsAvailable -= 160;
-  $('gemCount').textContent = totalPrimogemsAvailable;
-  
+  const wishContent = HEARTFELT_WISHES[totalWishesExecuted][currentLang];
   totalWishesExecuted++;
-  let resultPayload = null;
+  
   const t = getText();
+  $('wishProgress').textContent = t.wishProgress + (MAX_WISHES - totalWishesExecuted);
   
-  if (totalWishesExecuted <= 3) {
-    const dataPointer = CONFIG.gifts[totalWishesExecuted - 1][currentLang];
-    resultPayload = {
-      kind: t.kindGift, rarity: 5, glyphHTML: `<svg viewBox="0 0 100 100" style="width:100%;height:100%;"><circle cx="50" cy="50" r="40" fill="var(--gold)" opacity="0.3"/><path d="M50 20 L60 40 L82 40 L64 54 L70 76 L50 62 L30 76 L36 54 L18 40 L40 40 Z" fill="var(--gold)"/></svg>`,
-      title: dataPointer.title, body: dataPointer.body
-    };
-  } else {
-    const rng = Math.random();
-    if(rng < 0.45) {
-      const wishText = t.wishes[Math.floor(Math.random() * t.wishes.length)];
-      resultPayload = {
-        kind: t.kindWish, rarity: 4, glyphHTML: `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="var(--anemo)" opacity="0.3"/><path d="M50 20 Q65 45 50 70 Q35 45 50 20 Z" fill="var(--anemo)"/></svg>`,
-        title: t.wishTitle, body: wishText
-      };
-    } else if (rng < 0.75) {
-      const songText = t.songs[Math.floor(Math.random() * t.songs.length)];
-      resultPayload = {
-        kind: t.kindSong, rarity: 4, glyphHTML: `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="var(--hydro)" opacity="0.3"/><circle cx="40" cy="65" r="10" fill="var(--hydro)"/><path d="M50 65 L50 25 L75 35 L75 50" stroke="var(--hydro)" stroke-width="6" fill="none"/></svg>`,
-        title: t.songTitle, body: songText
-      };
-    } else {
-      const companion = RANDOM_CHAR_POOL[Math.floor(Math.random() * RANDOM_CHAR_POOL.length)];
-      const profilePictureUrl = PORTRAIT_AVATAR_RESOURCES[companion.key];
-      const renderGlyph = `<img src="${profilePictureUrl}" alt="${companion.key}">`;
-      
-      resultPayload = {
-        kind: t.kindChar, rarity: companion.rarity, glyphHTML: renderGlyph,
-        title: companion.key.toUpperCase(), body: t.charTitles[companion.key]
-      };
-    }
-  }
+  currentWishData = {
+    kind: t.kindWish,
+    title: wishContent.title,
+    body: wishContent.body
+  };
   
-  computedGachaDropObject = resultPayload;
-  runCinematicMeteorLayer(resultPayload.rarity);
+  runCinematicMeteorLayer();
 }
 
-function runCinematicMeteorLayer(rarity) {
-  const targetColor = rarity === 5 ? 'var(--gold)' : 'var(--violet)';
+function runCinematicMeteorLayer() {
   const overlay = $('pull-overlay');
   const meteor = $('meteorItem');
   
-  overlay.style.setProperty('--rarity-color', targetColor);
   overlay.style.display = 'flex';
+  // Use a slight timeout to allow display block to render before opacity transition if we had one
   overlay.classList.add('active');
   meteor.classList.add('streak');
   
@@ -795,22 +638,22 @@ function runCinematicMeteorLayer(rarity) {
     
     if (coreAudioContextActive && coreAudioContextActive.state === 'running') {
       let now = coreAudioContextActive.currentTime;
-      let notes = rarity === 5 ? [523.25, 659.25, 783.99, 1046.5] : [392, 493.88, 587.33];
+      let notes = [523.25, 659.25, 783.99, 1046.5]; // Magical chord
       notes.forEach((f, idx) => {
         let osc = coreAudioContextActive.createOscillator();
         let gain = coreAudioContextActive.createGain();
         osc.type = 'sine'; osc.frequency.value = f;
         gain.gain.setValueAtTime(0, now);
-        gain.gain.linearRampToValueAtTime(0.15, now + 0.04);
-        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.6);
+        gain.gain.linearRampToValueAtTime(0.12, now + 0.05);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.8);
         osc.connect(gain).connect(coreAudioContextActive.destination);
-        osc.start(now + idx*0.05); osc.stop(now + idx*0.05 + 0.7);
+        osc.start(now + idx*0.06); osc.stop(now + idx*0.06 + 0.9);
       });
     }
   }, 500);
 
-  const clearVibrationTimer = setTimeout(() => { document.body.classList.remove('shake'); }, 850);
-  const modalTransrenderTimer = setTimeout(() => { terminateCutsceneAndRenderModal(); }, 1500);
+  const clearVibrationTimer = setTimeout(() => { document.body.classList.remove('shake'); }, 900);
+  const modalTransrenderTimer = setTimeout(() => { terminateCutsceneAndRenderModal(); }, 1400);
 
   overlay.onclick = () => {
     clearTimeout(vibrationTimer); clearTimeout(clearVibrationTimer); clearTimeout(modalTransrenderTimer);
@@ -824,43 +667,32 @@ function terminateCutsceneAndRenderModal() {
   overlay.style.display = 'none'; overlay.classList.remove('active');
   $('meteorItem').classList.remove('streak'); $('impactFlash').classList.remove('go');
   
-  const card = $('resultCard');
-  card.className = `result-card r${computedGachaDropObject.rarity}`;
-  $('resultGlyph').innerHTML = computedGachaDropObject.glyphHTML;
-  $('resultStars').textContent = '★'.repeat(computedGachaDropObject.rarity);
-  $('resultStars').className = `result-stars r${computedGachaDropObject.rarity}`;
-  $('resultKind').textContent = computedGachaDropObject.kind;
-  $('resultTitle').textContent = computedGachaDropObject.title;
-  $('resultBody').textContent = computedGachaDropObject.body;
+  $('resultKind').textContent = currentWishData.kind;
+  $('resultTitle').textContent = currentWishData.title;
+  $('resultBody').textContent = currentWishData.body;
   
   $('result-overlay').style.display = 'flex';
-  $('result-overlay').classList.add('active');
-  
-  const list = $('historyList');
-  const row = document.createElement('div');
-  row.className = 'history-item';
-  row.innerHTML = `
-    <span class="g">${computedGachaDropObject.glyphHTML}</span>
-    <span class="n r${computedGachaDropObject.rarity}">${'★'.repeat(computedGachaDropObject.rarity)}</span>
-    <span style="margin-left:auto; font-weight:800; font-size:0.8rem;">${computedGachaDropObject.title}</span>
-  `;
-  list.prepend(row);
+  // Slight delay to trigger CSS transition smoothly
+  setTimeout(() => { $('result-overlay').classList.add('active'); }, 10);
 }
 
 $('closeResultBtn').addEventListener('click', () => {
-  $('result-overlay').style.display = 'none';
   $('result-overlay').classList.remove('active');
-  activeGachaCutsceneActive = false;
-  
-  if (totalWishesExecuted >= 3 && currentStage === 3) {
-    setTimeout(() => { navigateToStage(4); }, 350);
-  }
+  setTimeout(() => { 
+    $('result-overlay').style.display = 'none'; 
+    activeGachaCutsceneActive = false;
+    
+    // Check if we hit the limit, transition to Cake Stage!
+    if (totalWishesExecuted >= MAX_WISHES) {
+      setTimeout(() => { navigateToStage(4); }, 400);
+    }
+  }, 400);
 });
 
 $('pullBtn').addEventListener('click', () => { executeWishDrawSequence(); });
 
 /* ============================================================
-   STAGE 4: FINALE CELEBRATION CUTSCENE ROUTINES
+   STAGE 4: FINALE CAKE
    ============================================================ */
 let cakeIsCutOrBlown = false;
 
@@ -869,47 +701,28 @@ $('interactiveCake').addEventListener('click', () => {
   cakeIsCutOrBlown = true;
   
   $('interactiveCake').classList.add('cut');
-  $('txtCakeAction').textContent = currentLang === 'en' ? "✦ CELEBRATION TRACK ONLINE ✦" : "✦ ЖЕЛАНИЕ ОТПРАВЛЕНО ВО ВСЕЛЕННУЮ ТЕЙВАТА! ✦";
-  $('finaleSpeech').innerHTML = currentLang === 'en' ? 
-    "<strong>Incredible!</strong> The candle flame has been successfully cleared, and your operational luck vectors are locked forever. Have an exceptional, star-tier birthday celebration, Alina! 🌟" :
-    "<strong>Ура!</strong> Праздничная свеча успешно задута, а сигнал отправлен напрямую к звездам Тейвата. Пусть этот год принесет тебе только победы со стопроцентным шансом крита. С днем рождения, Алина! 🌟";
+  
+  const t = getText();
+  $('txtCakeAction').textContent = currentLang === 'en' ? "✦ FOREVER YOURS ✦" : "✦ НАВСЕГДА ТВОЙ ✦";
+  $('finaleSpeech').innerHTML = t.cakeBlown;
     
   if(coreAudioContextActive && coreAudioContextActive.state === 'running') {
     let now = coreAudioContextActive.currentTime;
-    const notes = [261.63, 261.63, 293.66, 261.63, 349.23, 329.63, 261.63, 261.63, 293.66, 261.63, 392.00, 349.23];
-    const tempos = [0.4, 0.4, 0.8, 0.8, 0.8, 1.2, 0.4, 0.4, 0.8, 0.8, 0.8, 1.2];
+    const notes = [261.63, 329.63, 392.00, 523.25, 659.25];
     notes.forEach((f, idx) => {
         let osc = coreAudioContextActive.createOscillator();
         let gain = coreAudioContextActive.createGain();
-        osc.type = 'sine'; osc.frequency.value = f;
+        osc.type = 'triangle'; osc.frequency.value = f;
         gain.gain.setValueAtTime(0, now);
-        gain.gain.linearRampToValueAtTime(0.12, now + 0.05);
-        gain.gain.exponentialRampToValueAtTime(0.001, now + tempos[idx]*0.9);
+        gain.gain.linearRampToValueAtTime(0.1, now + 0.1);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 1.5);
         osc.connect(gain).connect(coreAudioContextActive.destination);
-        osc.start(now); osc.stop(now + tempos[idx]);
-        now += tempos[idx]*0.7;
+        osc.start(now + idx*0.1); osc.stop(now + 1.5 + idx*0.1);
     });
   }
 });
 
-/* ============================================================
-   SYSTEM CORE INITIALIZATION BOOT STRAPPER
-   ============================================================ */
-function bootstrapStaticGfxLayouts() {
-  const renderImg = (key) => `<img src="${PORTRAIT_AVATAR_RESOURCES[key]}" alt="${key}">`;
-
-  $('boxKazuha').innerHTML = renderImg('kazuha');
-  $('boxXiao').innerHTML = renderImg('xiao');
-  $('boxKinich').innerHTML = renderImg('kinich');
-  
-  $('chibi1').innerHTML = renderImg('sandrone');
-  $('chibi2').innerHTML = renderImg('kinich');
-  $('chibi3').innerHTML = renderImg('columbina');
-  $('chibi4').innerHTML = renderImg('kazuha');
-  $('chibi5').innerHTML = renderImg('xiao');
-}
-
-bootstrapStaticGfxLayouts();
+/* Initialize */
 rebuildUIStrings();
 </script>
 </body>

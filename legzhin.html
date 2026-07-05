@@ -30,7 +30,7 @@
   
   /* ✨ DEEP SPACE MOVING CELEBRATION GRADIENT (Layer 1) ✨ */
   #bg-overlay {
-    position: fixed; inset: 0; z-index: 1; /* FIXED Z-INDEX */
+    position: fixed; inset: 0; z-index: 1;
     background: linear-gradient(-45deg, #0f041c, #3a1459, #6c2354, #2a0b47, #0f041c);
     background-size: 400% 400%;
     animation: gradientShift 16s ease-in-out infinite;
@@ -42,7 +42,7 @@
   }
 
   /* ✨ LIVE CANVAS LAYER FOR STARS & BALLOONS (Layer 2) ✨ */
-  canvas { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 2; /* FIXED Z-INDEX */ pointer-events: none; }
+  canvas { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 2; pointer-events: none; }
   
   body.shake { animation: impactVibe 0.4s cubic-bezier(.36,.07,.19,.97) both; }
   @keyframes impactVibe {
@@ -60,7 +60,7 @@
     padding: 24px 16px 80px; -webkit-overflow-scrolling: touch;
     transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     transform: translateY(20px);
-    z-index: 10; /* FIXED Z-INDEX */
+    z-index: 10;
   }
   .stage.active { display: flex; opacity: 1; pointer-events: all; transform: translateY(0); }
 
@@ -233,7 +233,7 @@
       <img class="kazuha-img" id="kazuhaImg" src="brave_screenshot_cdn.wallpapersafari.com.jpg" alt="Kazuha Landscape">
     </div>
     <div class="eyebrow" id="txtWelcomeEyebrow">A Special Day</div>
-    <h1 class="title" id="txtWelcomeTitle">Happy Birthday!</h1>
+    <h1 class="title" id="txtWelcomeTitle">Happy Birthday, Legzhin!</h1>
     <div class="speech-bubble" id="speechBubble">...</div>
     <button class="btn ember" id="toStage2Btn">Begin the Party ✦</button>
   </div>
@@ -374,15 +374,15 @@ const FRIENDSHIP_WISHES = [
   // 3 Emoji-Filled Birthday Wishes
   { type: "wish", 
     en: { title: "A True Friend! 🌟", body: "Every single moment hanging out with you is an absolute blast! 🥳 Your energy completely lights up the room, and I am so incredibly lucky to have such an amazing friend in my life! 💖✨" }, 
-    ru: { title: "Настоящий друг! 🌟", body: "Каждое мгновение с тобой — это просто взрыв эмоций! 🥳 Твоя энергия заряжает всех вокруг, и мне так безумно повезло, что у меня есть такая невероятная подруга! 💖✨" } 
+    ru: { title: "Настоящий друг! 🌟", body: "Каждое мгновение с тобой — это просто взрыв эмоций! 🥳 Твоя энергия заряжает всех вокруг, и мне так безумно повезло, что у меня есть такой невероятный друг! 💖✨" } 
   },
   { type: "wish", 
     en: { title: "C6 Legzhin Unlocked! 💎", body: "May this year bring you the ultimate Constellation 6 luck! 🚀 I hope you unlock everything your heart desires and so much more. You deserve all the rarest 5-star drops in life! 👑🎂" }, 
-    ru: { title: "С6 Легжин разблокирована! 💎", body: "Пусть этот год принесет тебе невероятную удачу Шестого Созвездия! 🚀 Надеюсь, ты получишь всё, о чем мечтает твое сердце, и даже больше. Ты заслуживаешь только самых редких 5★ наград в жизни! 👑🎂" } 
+    ru: { title: "С6 Легжин — разблокировано! 💎", body: "Пусть этот год принесет тебе невероятную удачу Шестого Созвездия! 🚀 Надеюсь, ты получишь всё, о чем мечтает твое сердце, и даже больше. Ты заслуживаешь только самых редких 5★ наград в жизни! 👑🎂" } 
   },
   { type: "wish", 
     en: { title: "Endless Adventures! 🧭", body: "Here’s to a brand new year filled with tons of laughter, zero stress, and epic new memories together! 🎢 Keep being your awesome, wonderful self. Happy Birthday, Legzhin! 🎈🎁" }, 
-    ru: { title: "Бесконечные приключения! 🧭", body: "За год, полный громкого смеха, без капли стресса и с кучей новых эпичных воспоминаний вместе! 🎢 Оставайся такой же потрясающей и замечательной. С днём рождения, Легжин! 🎈🎁" } 
+    ru: { title: "Бесконечные приключения! 🧭", body: "За год, полный громкого смеха, без капли стресса и с кучей новых эпичных воспоминаний вместе! 🎢 Оставайся таким же потрясающим человеком. С днём рождения, Легжин! 🎈🎁" } 
   },
   // 2 Character Pulls
   { type: "character", en: { title: "Kazuha", body: "Kazuha joins the party! A wanderer of the wind, ready to accompany you on all your upcoming adventures." }, ru: { title: "Кадзуха", body: "Кадзуха присоединяется к отряду! Странник, ведомый ветром, готов сопровождать тебя во всех твоих грядущих приключениях." } },
@@ -431,7 +431,7 @@ const I18N = {
   ru: {
     welcomeEyebrow: "Особенный День",
     welcomeTitle: "С днём рождения, Легжин!",
-    bubbleNamed: "«Сегодня в воздухе витает отличный вайб, напоминающий о том, как нам всем повезло иметь такую подругу.» <br><br>Я создал это маленькое пространство, чтобы поздравить тебя. Улыбнись, и давай начнем.",
+    bubbleNamed: "«Сегодня в воздухе витает отличный вайб, напоминающий о том, как нам всем повезло иметь такого замечательного друга.» <br><br>Я создал это маленькое пространство, чтобы поздравить тебя. Улыбнись, и давай начнем.",
     proceedBtn: "Начать праздник ✦",
     musicEyebrow: "Создаем настроение",
     musicTitle: "Выбери мелодию",
